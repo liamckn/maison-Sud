@@ -2,6 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
 import { Collection } from "@/components/Collection";
+import { Story } from "@/components/Story";
 import { Lifestyle } from "@/components/Lifestyle";
 import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
@@ -19,6 +20,7 @@ export function Home() {
           <Hero />
           <Marquee />
           <Collection />
+          <Story />
           <Lifestyle />
           <Newsletter />
         </main>
