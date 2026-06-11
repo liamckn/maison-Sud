@@ -48,12 +48,12 @@ export function Lifestyle() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-[600px] w-full"
+            className="relative w-full"
           >
             <img 
               src={monacoImg} 
               alt="Port de Monaco de nuit" 
-              className="relative z-10 w-full h-full object-cover"
+              className="relative z-10 w-full h-auto block"
             />
             {/* Corner decorations */}
             <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-primary z-20 -translate-x-4 -translate-y-4" />
