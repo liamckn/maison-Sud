@@ -1,3 +1,7 @@
+import teeStTropez from "@assets/WhatsApp_Image_2026-06-11_at_19.33.14_(1)_1781199672383.jpeg";
+import teeFuckTaxes from "@assets/WhatsApp_Image_2026-06-11_at_19.33.14_1781199672384.jpeg";
+import teeSmic from "@assets/WhatsApp_Image_2026-06-11_at_19.33.13_1781199672386.jpeg";
+
 export interface Product {
   id: string;
   name: string;
@@ -11,33 +15,33 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    id: "tee-acit-sunset",
-    name: "TEE ACIT SUNSET",
-    price: 65,
-    image: "/images/tee.png",
+    id: "tee-welcome-st-tropez",
+    name: "TEE WELCOME TO ST-TROPEZ",
+    price: 29.99,
+    image: teeStTropez,
     badge: "NOUVEAU",
-    description: "Le tee-shirt iconique de la maison ACIT. Coupe premium oversize, broderie ton-sur-ton sur la poitrine. Conçu pour les matins sur la terrasse et les nuits sur le port.",
-    details: ["100% Coton biologique", "Coupe oversize", "Broderie ACIT chest logo", "Lavage à 30°C", "Fabriqué en France"],
+    description: "Le tee qui t'emmène direct sur la Méditerranée. Dos imprimé avec le graphic iconique — yacht, palmier, Saint-Tropez. Coupe oversize, 100% coton premium.",
+    details: ["100% Coton biologique", "Coupe oversize", "Print dos haute qualité", "Lavage à 30°C", "Fabriqué en France"],
     sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   },
   {
-    id: "short-riviera",
-    name: "SHORT RIVIERA",
-    price: 85,
-    image: "/images/shorts.png",
-    description: "Le short de bain qui définit l'été. Coupe mi-longue, séchage rapide, bande latérale signature ACIT. Du port de Monaco à la plage de Pampelonne.",
-    details: ["100% Polyester recyclé", "Séchage ultra-rapide", "Bande latérale contrastée", "Poche zippée imperméable", "Longueur 21cm"],
-    sizes: ["S", "M", "L", "XL", "XXL"],
+    id: "tee-fuck-taxes",
+    name: "TEE FUCK TAXES",
+    price: 29.99,
+    image: teeFuckTaxes,
+    badge: "BEST-SELLER",
+    description: "Le statement tee des gens qui ont compris. FUCK TAXES en relief sur fond blanc, pour ceux qui font travailler leur argent plus qu'eux-mêmes.",
+    details: ["100% Coton biologique", "Coupe oversize", "Print velours relief", "Lavage à 30°C", "Fabriqué en France"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   },
   {
-    id: "casquette-monaco",
-    name: "CASQUETTE MONACO",
-    price: 55,
-    image: "/images/cap.png",
-    badge: "BEST-SELLER",
-    description: "La casquette structurée qui ne quitte jamais ceux qui savent. Logo ACIT brodé à plat sur le front, fermeture cuir ajustable. Une pièce intemporelle.",
-    details: ["Shell 100% Coton twill", "Broderie ACIT flat logo", "Fermeture cuir ajustable", "Visière pré-courbée", "Taille unique"],
-    sizes: ["Taille Unique"],
+    id: "tee-smic",
+    name: "TEE SMIC",
+    price: 29.99,
+    image: teeSmic,
+    description: "St-tropez. Monaco. Ibiza. Courchevel. Quatre destinations, une vérité. Le tee pour ceux qui savent que le SMIC ça peut aussi vouloir dire autre chose.",
+    details: ["100% Coton biologique", "Coupe oversize", "Print dos typo signature", "Lavage à 30°C", "Fabriqué en France"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   },
 ];
 
