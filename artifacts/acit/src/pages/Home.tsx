@@ -1,8 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Marquee } from "@/components/Marquee";
-import { Collection } from "@/components/Collection";
-import { CategoryTeaser } from "@/components/CategoryTeaser";
 import { Lifestyle } from "@/components/Lifestyle";
 import { Newsletter } from "@/components/Newsletter";
 import { Footer } from "@/components/Footer";
@@ -19,8 +17,6 @@ export function Home() {
         <main>
           <Hero />
           <Marquee />
-          <Collection />
-          <CategoryTeaser />
           <Lifestyle />
           <Newsletter />
         </main>
