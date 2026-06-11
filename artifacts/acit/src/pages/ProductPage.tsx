@@ -47,29 +47,29 @@ function ProductPageInner() {
       <Navbar />
       <CartDrawer />
 
-      <div className="pt-24 pb-24 px-6">
+      <div className="pt-20 sm:pt-24 pb-16 sm:pb-24 px-4 sm:px-6">
         <div className="container mx-auto max-w-7xl">
           <motion.button
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.4 }}
             onClick={() => setLocation("/")}
-            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-12 text-xs uppercase tracking-widest"
+            className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 sm:mb-12 text-xs uppercase tracking-widest"
             data-testid="button-back"
           >
             <ArrowLeft className="h-4 w-4" />
             Retour à la collection
           </motion.button>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-start">
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative bg-white border border-border/20 overflow-hidden"
+              className="relative bg-muted/5 border border-border/20 overflow-hidden"
             >
               {product.badge && (
-                <div className="absolute top-4 left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
                   {product.badge}
                 </div>
               )}
@@ -87,24 +87,24 @@ function ProductPageInner() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="lg:sticky lg:top-28"
             >
-              <p className="text-xs text-primary font-bold uppercase tracking-[0.3em] mb-3">𝔸ℂ𝕀𝕋</p>
+              <p className="text-xs text-primary font-bold uppercase tracking-[0.3em] mb-2 sm:mb-3">𝔸ℂ𝕀𝕋</p>
               <h1
-                className="text-3xl md:text-4xl font-display font-bold uppercase tracking-wider mb-3"
+                className="text-2xl sm:text-3xl md:text-4xl font-display font-bold uppercase tracking-wider mb-3"
                 data-testid="text-product-name"
               >
                 {product.name}
               </h1>
-              <p className="text-2xl font-mono text-primary mb-8" data-testid="text-product-price">
+              <p className="text-xl sm:text-2xl font-mono text-primary mb-6 sm:mb-8" data-testid="text-product-price">
                 {product.price} €
               </p>
 
-              <p className="text-muted-foreground leading-relaxed mb-10 text-sm">
+              <p className="text-muted-foreground leading-relaxed mb-8 sm:mb-10 text-sm">
                 {product.description}
               </p>
 
               {product.sizes.length > 1 && (
-                <div className="mb-8">
-                  <p className="text-xs uppercase tracking-widest mb-4 font-bold">
+                <div className="mb-6 sm:mb-8">
+                  <p className="text-xs uppercase tracking-widest mb-3 sm:mb-4 font-bold">
                     Taille
                     {selectedSize && <span className="ml-2 text-primary font-normal">— {selectedSize}</span>}
                   </p>
@@ -114,7 +114,7 @@ function ProductPageInner() {
                         key={size}
                         onClick={() => setSelectedSize(size)}
                         data-testid={`button-size-${size}`}
-                        className={`w-12 h-12 text-xs font-bold uppercase tracking-wider border transition-all ${
+                        className={`w-11 h-11 sm:w-12 sm:h-12 text-xs font-bold uppercase tracking-wider border transition-all ${
                           selectedSize === size
                             ? "bg-foreground text-background border-foreground"
                             : "bg-transparent text-foreground border-border/40 hover:border-foreground"
@@ -130,7 +130,7 @@ function ProductPageInner() {
               <button
                 onClick={handleAddToCart}
                 data-testid="button-add-to-cart"
-                className={`w-full h-14 flex items-center justify-center gap-3 font-bold uppercase tracking-widest text-sm transition-all duration-300 ${
+                className={`w-full h-12 sm:h-14 flex items-center justify-center gap-3 font-bold uppercase tracking-widest text-sm transition-all duration-300 ${
                   added
                     ? "bg-green-600 text-white"
                     : "bg-primary text-primary-foreground hover:opacity-90"
@@ -152,13 +152,13 @@ function ProductPageInner() {
               <button
                 onClick={() => { handleAddToCart(); setTimeout(() => setIsCartOpen(true), 200); }}
                 data-testid="button-buy-now"
-                className="w-full h-14 mt-3 border border-border/40 hover:border-foreground text-sm font-bold uppercase tracking-widest transition-all"
+                className="w-full h-12 sm:h-14 mt-3 border border-border/40 hover:border-foreground text-sm font-bold uppercase tracking-widest transition-all"
               >
                 Commander maintenant
               </button>
 
-              <div className="mt-12 pt-8 border-t border-border/10 space-y-3">
-                <p className="text-xs uppercase tracking-widest font-bold mb-4">Détails du produit</p>
+              <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-border/10 space-y-3">
+                <p className="text-xs uppercase tracking-widest font-bold mb-3 sm:mb-4">Détails du produit</p>
                 {product.details.map((detail, i) => (
                   <div key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
                     <div className="w-1 h-1 bg-primary rounded-full shrink-0" />
@@ -167,18 +167,18 @@ function ProductPageInner() {
                 ))}
               </div>
 
-              <div className="mt-8 pt-8 border-t border-border/10 grid grid-cols-3 gap-4 text-center">
+              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/10 grid grid-cols-3 gap-3 sm:gap-4 text-center">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest mb-1">Livraison</p>
-                  <p className="text-xs text-muted-foreground">24h express</p>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Livraison</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">24h express</p>
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest mb-1">Retours</p>
-                  <p className="text-xs text-muted-foreground">30 jours offerts</p>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Retours</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">30 jours offerts</p>
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-widest mb-1">Origine</p>
-                  <p className="text-xs text-muted-foreground">Made in France</p>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Origine</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">Made in France</p>
                 </div>
               </div>
             </motion.div>
