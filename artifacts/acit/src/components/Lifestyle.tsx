@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import monacoImg from "@assets/OIP_(1)_1781199246291.webp";
+import monacoImg from "@assets/istockphoto-891378896-170667a_1781199590978.jpg";
 
 const stats = [
   { value: "100%", label: "Made with Love" },
