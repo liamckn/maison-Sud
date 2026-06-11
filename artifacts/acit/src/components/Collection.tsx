@@ -41,7 +41,7 @@ export function Collection() {
               onClick={() => setLocation(`/product/${product.id}`)}
               data-testid={`card-product-${product.id}`}
             >
-              <div className="relative aspect-[3/4] bg-muted/10 overflow-hidden mb-5 border border-border/10">
+              <div className="relative aspect-[3/4] bg-white overflow-hidden mb-5 border border-border/10">
                 {product.badge && (
                   <div className="absolute top-4 left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
                     {product.badge}
