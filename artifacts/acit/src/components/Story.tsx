@@ -70,7 +70,7 @@ export function Story() {
             𝔸ℂ𝕀𝕋, c'est pour ceux<br className="hidden sm:block" /> qui n'attendent pas.
           </p>
           <div className="text-xs text-primary font-bold uppercase tracking-[0.3em] shrink-0">
-            Fondé en 2024
+            Fondé en 2025
           </div>
         </motion.div>
 
