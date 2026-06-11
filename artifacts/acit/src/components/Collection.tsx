@@ -41,7 +41,7 @@ export function Collection() {
               onClick={() => setLocation(`/product/${product.id}`)}
               data-testid={`card-product-${product.id}`}
             >
-              <div className="relative aspect-[3/4] bg-gray-100 overflow-hidden mb-4 sm:mb-5 border border-border/10">
+              <div className="relative aspect-[3/4] overflow-hidden mb-4 sm:mb-5 border border-border/10" style={{ backgroundColor: "#e8e8e8" }}>
                 {product.badge && (
                   <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
                     {product.badge}
