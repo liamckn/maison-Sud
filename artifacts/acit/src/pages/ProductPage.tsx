@@ -66,7 +66,7 @@ function ProductPageInner() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative bg-muted/5 border border-border/20 overflow-hidden"
+              className="relative bg-gray-100 border border-border/20 overflow-hidden"
             >
               {product.badge && (
                 <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
