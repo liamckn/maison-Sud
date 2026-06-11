@@ -76,7 +76,7 @@ function ProductPageInner() {
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full aspect-[3/4] object-cover"
+                className="w-full aspect-[3/4] object-contain p-6"
                 data-testid={`img-product-${product.id}`}
               />
             </motion.div>
