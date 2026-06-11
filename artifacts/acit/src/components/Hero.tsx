@@ -17,8 +17,8 @@ export function Hero() {
     <div ref={ref} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-background">
       {/* Dynamic glow background */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full pointer-events-none opacity-50 mix-blend-screen" />
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/10 blur-[100px] rounded-full pointer-events-none opacity-30 mix-blend-screen" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 blur-[140px] rounded-full pointer-events-none opacity-60" />
+        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/8 blur-[100px] rounded-full pointer-events-none opacity-40" />
       </div>
 
       <motion.div 
@@ -70,7 +70,7 @@ export function Hero() {
           </Button>
           <Button 
             variant="outline"
-            className="rounded-none border-border hover:bg-white/5 hover:text-primary h-14 px-12 text-sm uppercase tracking-widest font-bold w-full sm:w-auto"
+            className="rounded-none border-black/20 hover:bg-black/5 hover:text-primary h-14 px-12 text-sm uppercase tracking-widest font-bold w-full sm:w-auto"
             onClick={() => document.getElementById("lamarque")?.scrollIntoView({ behavior: "smooth" })}
           >
             L'Histoire

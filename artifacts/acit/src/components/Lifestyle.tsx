@@ -49,7 +49,7 @@ export function Lifestyle() {
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative h-[600px] w-full"
           >
-            <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full mix-blend-screen opacity-50 z-0" />
+            <div className="absolute inset-0 bg-primary/15 blur-[100px] rounded-full opacity-40 z-0" />
             <img 
               src="/images/lifestyle.png" 
               alt="ACIT Lifestyle on the French Riviera" 

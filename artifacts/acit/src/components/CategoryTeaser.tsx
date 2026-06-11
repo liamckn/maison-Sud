@@ -21,7 +21,7 @@ export function CategoryTeaser() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="group flex flex-col items-center justify-center py-8 px-4 text-center hover:bg-white/5 transition-colors"
+              className="group flex flex-col items-center justify-center py-8 px-4 text-center hover:bg-black/5 transition-colors"
             >
               <h4 className="font-display text-lg uppercase tracking-widest mb-4 group-hover:text-primary transition-colors">
                 {category}
