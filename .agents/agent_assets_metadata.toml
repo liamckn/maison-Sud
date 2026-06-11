@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "2yokzGNDb4osccDVnwWrH"
+uri = "file://artifacts/acit/public/images/tee.png"
+type = "image"
+title = "Minimalist white t-shirt gold logo"
+
+[[generated]]
+id = "boidMCyq2EP9KJBaxKpFC"
+uri = "file://artifacts/acit/public/images/shorts.png"
+type = "image"
+title = "Navy swim shorts gold stripe"
+
+[[generated]]
+id = "clRy6hDxx4e1OxSQOb57i"
+uri = "file://artifacts/acit/public/images/cap.png"
+type = "image"
+title = "Black cap gold embroidered logo"
+
+[[generated]]
+id = "QAHC9p5jt42nPTquNymXM"
+uri = "file://artifacts/acit/public/images/lifestyle.png"
+type = "image"
+title = "Golden hour beach scene Monaco"

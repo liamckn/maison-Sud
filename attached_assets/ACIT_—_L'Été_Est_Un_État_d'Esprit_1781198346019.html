@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACIT — L'Été Est Un État d'Esprit</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #0a0a0a; color: #fff; }
+
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(10,10,10,0.97);
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-logo { font-size: 22px; font-weight: 500; letter-spacing: 6px; color: #D4A843; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { font-size: 12px; letter-spacing: 2px; color: rgba(255,255,255,0.5); text-decoration: none; cursor: pointer; transition: color 0.2s; }
+  .nav-links a:hover { color: #D4A843; }
+  .nav-cta { background: #D4A843; color: #0a0a0a; font-size: 11px; letter-spacing: 2px; padding: 10px 24px; border: none; cursor: pointer; border-radius: 2px; font-weight: 600; }
+
+  .hero {
+    min-height: 88vh;
+    background: radial-gradient(ellipse at center, #2a1f0a 0%, #1a1208 40%, #0a0a0a 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 80px 40px; position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,168,67,0.10) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;
+  }
+  .hero-tag { font-size: 11px; letter-spacing: 5px; color: #D4A843; margin-bottom: 28px; }
+  .hero-title { font-size: 80px; font-weight: 300; letter-spacing: 20px; color: #fff; line-height: 1; margin-bottom: 10px; }
+  .hero-sub { font-size: 13px; letter-spacing: 5px; color: rgba(255,255,255,0.3); margin-bottom: 56px; }
+  .hero-desc { font-size: 15px; color: rgba(255,255,255,0.45); max-width: 480px; line-height: 1.9; margin-bottom: 56px; }
+  .hero-btns { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .btn-primary { background: #D4A843; color: #0a0a0a; font-size: 11px; letter-spacing: 3px; padding: 16px 40px; border: none; cursor: pointer; border-radius: 2px; font-weight: 600; transition: opacity 0.2s; }
+  .btn-primary:hover { opacity: 0.88; }
+  .btn-secondary { background: transparent; color: #D4A843; font-size: 11px; letter-spacing: 3px; padding: 16px 40px; border: 0.5px solid rgba(212,168,67,0.4); cursor: pointer; border-radius: 2px; transition: border-color 0.2s; }
+  .btn-secondary:hover { border-color: #D4A843; }
+  .hero-scroll { position: absolute; bottom: 32px; font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.18); }
+
+  .strip {
+    background: #D4A843; padding: 14px 0;
+    display: flex; gap: 0; overflow: hidden;
+  }
+  .strip-inner {
+    display: flex; gap: 48px; animation: marquee 18s linear infinite; white-space: nowrap; padding: 0 24px;
+  }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .strip span { font-size: 11px; letter-spacing: 3px; color: #0a0a0a; font-weight: 600; flex-shrink: 0; }
+
+  .section { padding: 100px 40px; }
+  .section-label { font-size: 11px; letter-spacing: 4px; color: #D4A843; margin-bottom: 16px; }
+  .section-title { font-size: 38px; font-weight: 300; letter-spacing: 3px; color: #fff; margin-bottom: 48px; }
+
+  .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .product-card {
+    background: #111; aspect-ratio: 3/4; position: relative; overflow: hidden; cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .product-card:hover { transform: scale(0.985); }
+  .product-card:hover .product-overlay { opacity: 1; }
+  .product-card:hover .product-add { opacity: 1; }
+  .product-img {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 80px; color: rgba(255,255,255,0.04);
+  }
+  .product-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, transparent 100%);
+    padding: 40px 24px 24px; opacity: 0; transition: opacity 0.3s;
+  }
+  .product-name { font-size: 13px; letter-spacing: 2px; color: #fff; font-weight: 500; }
+  .product-price { font-size: 13px; color: #D4A843; margin-top: 6px; }
+  .product-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: #D4A843; color: #0a0a0a; font-size: 9px; letter-spacing: 2px;
+    padding: 4px 10px; border-radius: 2px; font-weight: 700;
+  }
+  .product-add {
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(10,10,10,0.85); color: #fff; border: 0.5px solid rgba(255,255,255,0.2);
+    font-size: 22px; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    border-radius: 2px; opacity: 0; transition: opacity 0.3s; user-select: none;
+  }
+
+  .icons-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 2px; }
+  .icon-card { background: #111; padding: 40px 32px; text-align: center; cursor: pointer; transition: background 0.2s; }
+  .icon-card:hover { background: #161616; }
+  .icon-card .ic { font-size: 32px; margin-bottom: 16px; display: block; }
+  .icon-card p { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.35); }
+
+  .lifestyle {
+    background: #0d0d0d; padding: 100px 40px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  .lifestyle-visual {
+    aspect-ratio: 1; background: #111;
+    border: 0.5px solid rgba(212,168,67,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 110px; border-radius: 4px;
+  }
+  .lifestyle-text p.desc { font-size: 15px; color: rgba(255,255,255,0.4); line-height: 1.95; margin-bottom: 40px; }
+  .lifestyle-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 40px; }
+  .stat-num { font-size: 34px; font-weight: 300; color: #D4A843; letter-spacing: 2px; }
+  .stat-label { font-size: 10px; letter-spacing: 2px; color: rgba(255,255,255,0.28); margin-top: 4px; }
+
+  .newsletter { padding: 100px 40px; text-align: center; background: #0a0a0a; }
+  .newsletter .section-title { max-width: 520px; margin: 0 auto 16px; }
+  .nl-desc { font-size: 14px; color: rgba(255,255,255,0.3); letter-spacing: 1px; margin-bottom: 44px; }
+  .nl-form { display: flex; gap: 0; max-width: 480px; margin: 0 auto; }
+  .nl-input {
+    flex: 1; background: #111; border: 0.5px solid rgba(255,255,255,0.1); border-right: none;
+    color: #fff; font-size: 13px; padding: 16px 20px; outline: none;
+    font-family: inherit; letter-spacing: 1px;
+  }
+  .nl-input::placeholder { color: rgba(255,255,255,0.18); }
+  .nl-input:focus { border-color: rgba(212,168,67,0.4); }
+  .nl-btn {
+    background: #D4A843; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 3px;
+    padding: 16px 28px; cursor: pointer; font-weight: 700; font-family: inherit; transition: opacity 0.2s;
+  }
+  .nl-btn:hover { opacity: 0.88; }
+  .nl-note { font-size: 11px; color: rgba(255,255,255,0.18); letter-spacing: 1px; margin-top: 16px; }
+
+  .cart-drawer {
+    position: fixed; right: 0; top: 0; bottom: 0; width: 360px;
+    background: #0f0f0f; border-left: 0.5px solid rgba(255,255,255,0.08);
+    z-index: 200; transform: translateX(100%); transition: transform 0.32s cubic-bezier(.4,0,.2,1);
+    display: flex; flex-direction: column; padding: 32px;
+  }
+  .cart-drawer.open { transform: translateX(0); }
+  .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+  .cart-header span { font-size: 13px; letter-spacing: 3px; color: #D4A843; }
+  .cart-close { background: none; border: none; color: rgba(255,255,255,0.5); font-size: 24px; cursor: pointer; line-height: 1; }
+  .cart-empty { flex: 1; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.18); font-size: 12px; letter-spacing: 2px; }
+  .cart-items-list { flex: 1; overflow-y: auto; }
+  .cart-item { display: flex; gap: 16px; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 0.5px solid rgba(255,255,255,0.06); }
+  .cart-item-img { width: 64px; height: 80px; background: #1a1a1a; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+  .cart-item-name { font-size: 12px; color: #fff; letter-spacing: 1px; }
+  .cart-item-price { font-size: 12px; color: #D4A843; margin-top: 6px; }
+  .cart-item-remove { font-size: 10px; color: rgba(255,255,255,0.2); cursor: pointer; margin-top: 10px; letter-spacing: 1px; border: none; background: none; color: rgba(255,255,255,0.25); font-family: inherit; }
+  .cart-footer { border-top: 0.5px solid rgba(255,255,255,0.08); padding-top: 24px; margin-top: 16px; }
+  .cart-total { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+  .cart-total span { font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 1px; }
+  .cart-total strong { font-size: 20px; color: #D4A843; font-weight: 300; }
+  .cart-checkout { width: 100%; background: #D4A843; color: #0a0a0a; border: none; font-size: 11px; letter-spacing: 3px; padding: 18px; cursor: pointer; font-weight: 700; border-radius: 2px; font-family: inherit; }
+
+  .toast {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(120px);
+    background: #D4A843; color: #0a0a0a; font-size: 11px; letter-spacing: 2px; padding: 14px 28px;
+    border-radius: 2px; font-weight: 700; z-index: 300; transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  .footer { padding: 70px 40px 40px; border-top: 0.5px solid rgba(255,255,255,0.06); display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; }
+  .footer-logo { font-size: 20px; letter-spacing: 6px; color: #D4A843; margin-bottom: 16px; font-weight: 300; }
+  .footer-tagline { font-size: 12px; color: rgba(255,255,255,0.22); letter-spacing: 2px; line-height: 2; }
+  .footer-col h4 { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.35); margin-bottom: 20px; font-weight: 400; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.22); text-decoration: none; margin-bottom: 12px; cursor: pointer; letter-spacing: 1px; transition: color 0.2s; }
+  .footer-col a:hover { color: #D4A843; }
+  .footer-bottom { padding: 20px 40px; border-top: 0.5px solid rgba(255,255,255,0.04); display: flex; justify-content: space-between; }
+  .footer-bottom span { font-size: 10px; color: rgba(255,255,255,0.12); letter-spacing: 1px; }
+
+  @media (max-width: 768px) {
+    .nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero-title { font-size: 48px; letter-spacing: 10px; }
+    .section { padding: 70px 20px; }
+    .products-grid { grid-template-columns: repeat(2, 1fr); }
+    .icons-row { grid-template-columns: repeat(2, 1fr); }
+    .lifestyle { grid-template-columns: 1fr; padding: 70px 20px; gap: 40px; }
+    .footer { grid-template-columns: 1fr; gap: 40px; padding: 50px 20px 30px; }
+    .footer-bottom { flex-direction: column; gap: 8px; padding: 20px; }
+    .cart-drawer { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">ACIT</div>
+  <div class="nav-links">
+    <a onclick="scrollToSection('products')">Collection</a>
+    <a onclick="scrollToSection('lifestyle')">La Marque</a>
+    <a onclick="scrollToSection('newsletter')">Exclusif</a>
+  </div>
+  <button class="nav-cta" onclick="toggleCart()">PANIER (<span id="cart-count">0</span>)</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <p class="hero-tag">SAINT-TROPEZ &nbsp;·&nbsp; MONACO &nbsp;·&nbsp; CÔTE D'AZUR</p>
+  <h1 class="hero-title">ACIT</h1>
+  <p class="hero-sub">L'ÉTÉ EST UN ÉTAT D'ESPRIT</p>
+  <p class="hero-desc">La marque des jeunes qui vivent l'été à fond. Inspirée par la Méditerranée, faite pour ceux qui savent profiter.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="scrollToSection('products')">DÉCOUVRIR LA COLLECTION</button>
+    <button class="btn-secondary" onclick="scrollToSection('newsletter')">ACCÈS EXCLUSIF</button>
+  </div>
+  <p class="hero-scroll">↓ EXPLORER</p>
+</section>
+
+<div class="strip">
+  <div class="strip-inner" id="strip-inner">
+    <span>SAINT-TROPEZ</span><span>·</span><span>MONACO</span><span>·</span>
+    <span>CÔTE D'AZUR</span><span>·</span><span>ACIT</span><span>·</span>
+    <span>ÉTÉ 2025</span><span>·</span><span>LIVRAISON OFFERTE DÈS 100€</span><span>·</span>
+    <span>SAINT-TROPEZ</span><span>·</span><span>MONACO</span><span>·</span>
+    <span>CÔTE D'AZUR</span><span>·</span><span>ACIT</span><span>·</span>
+    <span>ÉTÉ 2025</span><span>·</span><span>LIVRAISON OFFERTE DÈS 100€</span><span>·</span>
+  </div>
+</div>
+
+<section class="section" id="products">
+  <p class="section-label">— COLLECTION</p>
+  <h2 class="section-title">Les Essentiels</h2>
+  <div class="products-grid">
+    <div class="product-card" onclick="addToCart('Tee ACIT Sunset', 65, '☀️')">
+      <div class="product-img">☀️</div>
+      <div class="product-badge">NOUVEAU</div>
+      <div class="product-add" title="Ajouter au panier">+</div>
+      <div class="product-overlay">
+        <p class="product-name">TEE ACIT SUNSET</p>
+        <p class="product-price">65 €</p>
+      </div>
+    </div>
+    <div class="product-card" onclick="addToCart('Short Riviera', 85, '🌊')">
+      <div class="product-img">🌊</div>
+      <div class="product-add" title="Ajouter au panier">+</div>
+      <div class="product-overlay">
+        <p class="product-name">SHORT RIVIERA</p>
+        <p class="product-price">85 €</p>
+      </div>
+    </div>
+    <div class="product-card" onclick="addToCart('Casquette Monaco', 55, '🎯')">
+      <div class="product-img">🎯</div>
+      <div class="product-badge">BEST-SELLER</div>
+      <div class="product-add" title="Ajouter au panier">+</div>
+      <div class="product-overlay">
+        <p class="product-name">CASQUETTE MONACO</p>
+        <p class="product-price">55 €</p>
+      </div>
+    </div>
+  </div>
+  <div class="icons-row">
+    <div class="icon-card"><span class="ic">👕</span><p>HOODIES</p></div>
+    <div class="icon-card"><span class="ic">🕶️</span><p>ACCESSOIRES</p></div>
+    <div class="icon-card"><span class="ic">⭐</span><p>ÉDITIONS LIMITÉES</p></div>
+    <div class="icon-card"><span class="ic">🎁</span><p>COFFRETS</p></div>
+  </div>
+</section>
+
+<section class="lifestyle" id="lifestyle">
+  <div class="lifestyle-visual">🏖️</div>
+  <div class="lifestyle-text">
+    <p class="section-label">— LA MARQUE</p>
+    <h2 class="section-title">Né sur la Côte d'Azur</h2>
+    <p class="desc">ACIT, c'est la marque de ceux qui ne s'arrêtent jamais. Ceux qui font la terrasse à Monaco le soir et les plages de Saint-Tropez le matin. L'été ne s'arrête jamais pour eux.</p>
+    <div class="lifestyle-stats">
+      <div><p class="stat-num">100%</p><p class="stat-label">MADE WITH LOVE</p></div>
+      <div><p class="stat-num">24H</p><p class="stat-label">LIVRAISON EXPRESS</p></div>
+      <div><p class="stat-num">∞</p><p class="stat-label">VIBES ESTIVALES</p></div>
+      <div><p class="stat-num">FR</p><p class="stat-label">ORIGINE FRANCE</p></div>
+    </div>
+    <button class="btn-primary">NOTRE HISTOIRE →</button>
+  </div>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <p class="section-label">— ACCÈS EXCLUSIF</p>
+  <h2 class="section-title">Rejoins le Club ACIT</h2>
+  <p class="nl-desc">Avant-premières, drops limités, accès VIP. Réservé aux inscrits.</p>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="TON EMAIL" id="nl-email" />
+    <button class="nl-btn" onclick="subscribe()">REJOINDRE</button>
+  </div>
+  <p class="nl-note">Pas de spam. Juste les drops qui comptent.</p>
+</section>
+
+<footer class="footer">
+  <div>
+    <p class="footer-logo">ACIT</p>
+    <p class="footer-tagline">L'ÉTÉ EST UN ÉTAT D'ESPRIT<br>Saint-Tropez · Monaco · Côte d'Azur</p>
+  </div>
+  <div class="footer-col">
+    <h4>MARQUE</h4>
+    <a>Notre histoire</a>
+    <a>Collection</a>
+    <a>Lookbook</a>
+    <a>Contact</a>
+  </div>
+  <div class="footer-col">
+    <h4>INFO</h4>
+    <a>Livraison</a>
+    <a>Retours</a>
+    <a>FAQ</a>
+    <a>Mentions légales</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 ACIT — TOUS DROITS RÉSERVÉS</span>
+  <span>SAINT-TROPEZ · MONACO · CÔTE D'AZUR</span>
+</div>
+
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <span>PANIER</span>
+    <button class="cart-close" onclick="toggleCart()">×</button>
+  </div>
+  <div id="cart-body" style="flex:1; display:flex; flex-direction:column;">
+    <div class="cart-empty" id="cart-empty">TON PANIER EST VIDE</div>
+    <div class="cart-items-list" id="cart-items" style="display:none;"></div>
+  </div>
+  <div class="cart-footer" id="cart-footer" style="display:none;">
+    <div class="cart-total">
+      <span>TOTAL</span>
+      <strong id="cart-total-val">0 €</strong>
+    </div>
+    <button class="cart-checkout">COMMANDER →</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  let cart = [];
+
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function toggleCart() {
+    document.getElementById('cart-drawer').classList.toggle('open');
+  }
+
+  function addToCart(name, price, emoji) {
+    cart.push({ name, price, emoji });
+    renderCart();
+    showToast(name.toUpperCase() + ' AJOUTÉ');
+  }
+
+  function removeFromCart(i) {
+    cart.splice(i, 1);
+    renderCart();
+  }
+
+  function renderCart() {
+    const count = cart.length;
+    document.getElementById('cart-count').textContent = count;
+
+    const empty = document.getElementById('cart-empty');
+    const itemsEl = document.getElementById('cart-items');
+    const footer = document.getElementById('cart-footer');
+
+    if (count === 0) {
+      empty.style.display = 'flex';
+      itemsEl.style.display = 'none';
+      footer.style.display = 'none';
+      return;
+    }
+
+    empty.style.display = 'none';
+    itemsEl.style.display = 'block';
+    footer.style.display = 'block';
+
+    let total = 0;
+    itemsEl.innerHTML = '';
+    cart.forEach((item, i) => {
+      total += item.price;
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <div class="cart-item-img">${item.emoji}</div>
+        <div style="flex:1;">
+          <p class="cart-item-name">${item.name.toUpperCase()}</p>
+          <p class="cart-item-price">${item.price} €</p>
+          <button class="cart-item-remove" onclick="removeFromCart(${i})">RETIRER</button>
+        </div>
+      `;
+      itemsEl.appendChild(div);
+    });
+
+    document.getElementById('cart-total-val').textContent = total + ' €';
+  }
+
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  function subscribe() {
+    const email = document.getElementById('nl-email').value;
+    if (email && email.includes('@')) {
+      showToast('BIENVENUE DANS LE CLUB ACIT');
+      document.getElementById('nl-email').value = '';
+    } else {
+      showToast('ENTRE UN EMAIL VALIDE');
+    }
+  }
+</script>
+</body>
+</html>
