@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import monacoImg from "@assets/OIP_(1)_1781199246291.webp";
 
 const stats = [
   { value: "100%", label: "Made with Love" },
@@ -51,8 +52,8 @@ export function Lifestyle() {
           >
             <div className="absolute inset-0 bg-primary/15 blur-[100px] rounded-full opacity-40 z-0" />
             <img 
-              src="/images/lifestyle.png" 
-              alt="ACIT Lifestyle on the French Riviera" 
+              src={monacoImg} 
+              alt="Port de Monaco de nuit" 
               className="relative z-10 w-full h-full object-cover grayscale-[20%] contrast-[1.1] brightness-[0.9]"
             />
             {/* Corner decorations */}
