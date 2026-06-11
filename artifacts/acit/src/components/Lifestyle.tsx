@@ -22,7 +22,7 @@ export function Lifestyle() {
             L'essence de la<br />Méditerranée
           </h3>
           <p className="text-muted-foreground text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed font-light max-w-2xl">
-            ACIT est plus qu'une marque de vêtements. C'est un hymne à la jeunesse, aux soirées qui s'étirent, au sable chaud sous les pieds et à l'élégance désinvolte de la French Riviera. Conçu pour ceux qui vivent chaque instant intensément.
+            ＲＩＶＡ est plus qu'une marque de vêtements. C'est un hymne à la jeunesse, aux soirées qui s'étirent, au sable chaud sous les pieds et à l'élégance désinvolte de la French Riviera. Conçu pour ceux qui vivent chaque instant intensément.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 mt-8 sm:mt-12 pt-8 sm:pt-12 border-t border-border/10">

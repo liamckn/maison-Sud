@@ -62,7 +62,7 @@ export function Navbar() {
 
           <div className="absolute left-1/2 -translate-x-1/2">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-primary tracking-[0.2em]">
-              𝔸ℂ𝕀𝕋
+              ＲＩＶＡ
             </h1>
           </div>
 
