@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
-            <h2 className="text-4xl font-display font-bold text-primary tracking-[0.2em] mb-6">ACIT</h2>
+            <h2 className="text-4xl font-display font-bold text-primary tracking-[0.2em] mb-6">𝔸ℂ𝕀𝕋</h2>
             <p className="text-muted-foreground text-sm uppercase tracking-widest max-w-xs mb-8">
               L'Été Est Un État D'Esprit.
             </p>

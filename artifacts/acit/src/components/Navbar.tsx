@@ -41,7 +41,7 @@ export function Navbar() {
         </div>
 
         <div className="absolute left-1/2 -translate-x-1/2">
-          <h1 className="text-3xl md:text-4xl font-display font-extrabold text-primary tracking-[0.2em]">ACIT</h1>
+          <h1 className="text-3xl md:text-4xl font-display font-extrabold text-primary tracking-[0.2em]">𝔸ℂ𝕀𝕋</h1>
         </div>
 
         <div className="flex items-center justify-end">
