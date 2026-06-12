@@ -87,7 +87,7 @@ function ProductPageInner() {
               transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="lg:sticky lg:top-28"
             >
-              <p className="text-xs text-primary font-bold uppercase tracking-[0.3em] mb-2 sm:mb-3">MAISON SUD</p>
+              <p className="text-xs text-primary font-bold uppercase tracking-[0.3em] mb-2 sm:mb-3">𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱</p>
               <h1
                 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold uppercase tracking-wider mb-3"
                 data-testid="text-product-name"

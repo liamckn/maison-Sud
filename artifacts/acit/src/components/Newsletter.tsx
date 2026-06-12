@@ -13,7 +13,7 @@ export function Newsletter() {
     if (!email) return;
 
     toast({
-      title: "Bienvenue au Club MAISON SUD",
+      title: "Bienvenue au Club 𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱",
       description: "Vous êtes désormais sur la liste VIP.",
     });
     setEmail("");

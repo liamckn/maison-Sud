@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 mb-12 sm:mb-16">
           <div className="col-span-2">
-            <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-[0.2em] mb-4 sm:mb-6">MAISON SUD</h2>
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-primary tracking-[0.2em] mb-4 sm:mb-6">𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱</h2>
             <p className="text-muted-foreground text-sm uppercase tracking-widest max-w-xs mb-6 sm:mb-8">
               L'Été Est Un État D'Esprit.
             </p>
@@ -43,7 +43,7 @@ export function Footer() {
 
         <div className="border-t border-border/10 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <p className="text-muted-foreground text-xs uppercase tracking-wider">
-            &copy; {new Date().getFullYear()} MAISON SUD. Tous droits réservés.
+            &copy; {new Date().getFullYear()} 𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱. Tous droits réservés.
           </p>
           <div className="flex gap-4 sm:gap-6 text-xs text-muted-foreground uppercase tracking-wider">
             <span>FR / EUR</span>
