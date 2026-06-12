@@ -27,19 +27,6 @@ export function Story() {
           </h2>
         </motion.div>
 
-        {/* Pull quote */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="border-l-4 border-primary pl-6 sm:pl-10 mb-14 sm:mb-20"
-        >
-          <p className="text-2xl sm:text-3xl md:text-4xl font-display font-bold leading-snug text-foreground">
-            C'est comme ça qu'est née <span className="text-primary">𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱</span>.
-          </p>
-        </motion.div>
-
         {/* Body paragraphs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
           {paragraphs.map((p, i) => (
