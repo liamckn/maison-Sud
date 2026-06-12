@@ -54,7 +54,10 @@ export function Collection() {
                 onClick={() => setLocation(`/product/${product.id}`)}
                 data-testid={`card-product-${product.id}`}
               >
-                <div className="relative aspect-[3/4] overflow-hidden mb-4 sm:mb-5 border border-border/10" style={{ backgroundColor: "#d4d4d4" }}>
+                <div
+                  className="relative aspect-[3/4] overflow-hidden mb-4 sm:mb-5 border border-border/10"
+                  style={{ backgroundColor: product.imageFit === "cover" ? "transparent" : "#d4d4d4" }}
+                >
                   {product.badge && (
                     <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
                       {product.badge}
@@ -63,7 +66,9 @@ export function Collection() {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105"
+                    className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${
+                      product.imageFit === "cover" ? "object-cover object-top" : "object-contain p-4"
+                    }`}
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-4 sm:p-6">
                     <span className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2">
