@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowLeft, ShoppingBag, Check } from "lucide-react";
@@ -17,6 +17,10 @@ function ProductPageInner() {
   const { toast } = useToast();
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [added, setAdded] = useState(false);
+  const allImages = product ? (product.images ?? [product.image]) : [];
+  const [activeImg, setActiveImg] = useState(0);
+
+  useEffect(() => { setActiveImg(0); }, [id]);
 
   if (!product) {
     return (
@@ -66,20 +70,44 @@ function ProductPageInner() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="relative border border-border/20 overflow-hidden"
-              style={{ backgroundColor: product.imageFit === "cover" ? "transparent" : "#d4d4d4" }}
+              className="flex flex-col gap-3"
             >
-              {product.badge && (
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
-                  {product.badge}
+              {/* Main image */}
+              <div className="relative border border-border/20 overflow-hidden bg-[#f5f5f5]">
+                {product.badge && (
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
+                    {product.badge}
+                  </div>
+                )}
+                <img
+                  key={activeImg}
+                  src={allImages[activeImg]}
+                  alt={product.name}
+                  className="w-full object-contain"
+                  data-testid={`img-product-${product.id}`}
+                />
+              </div>
+
+              {/* Thumbnails */}
+              {allImages.length > 1 && (
+                <div className="flex gap-2 sm:gap-3">
+                  {allImages.map((src, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveImg(i)}
+                      className={`flex-1 border overflow-hidden transition-all ${
+                        i === activeImg ? "border-primary" : "border-border/20 hover:border-border/60"
+                      }`}
+                    >
+                      <img
+                        src={src}
+                        alt={`Vue ${i + 1}`}
+                        className="w-full aspect-[3/4] object-cover object-top"
+                      />
+                    </button>
+                  ))}
                 </div>
               )}
-              <img
-                src={product.image}
-                alt={product.name}
-                className={`w-full aspect-[3/4] ${product.imageFit === "cover" ? "object-cover object-top" : "object-contain p-6"}`}
-                data-testid={`img-product-${product.id}`}
-              />
             </motion.div>
 
             <motion.div

@@ -3,6 +3,7 @@ export interface Product {
   name: string;
   price: number;
   image: string;
+  images?: string[];
   imageFit?: "contain" | "cover";
   badge?: string;
   description: string;
@@ -16,6 +17,11 @@ export const products: Product[] = [
     name: "T-shirt homme Maison Sud",
     price: 29.99,
     image: "/images/tee-maison-sud-front.jpeg",
+    images: [
+      "/images/tee-maison-sud-front.jpeg",
+      "/images/tee-maison-sud-side.jpeg",
+      "/images/tee-maison-sud-side2.jpeg",
+    ],
     imageFit: "cover",
     badge: "NOUVEAU",
     description: "Le t-shirt signature Maison Sud. Logo brodé sur la poitrine, coupe régulière en coton premium blanc. Inspiré par la lumière dorée de la Côte d'Azur.",
