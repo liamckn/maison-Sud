@@ -36,7 +36,7 @@ export function Story() {
           className="border-l-4 border-primary pl-6 sm:pl-10 mb-14 sm:mb-20"
         >
           <p className="text-2xl sm:text-3xl md:text-4xl font-display font-bold leading-snug text-foreground">
-            C'est comme ça qu'est née <span className="text-primary">ＲＩＶＡ</span>.
+            C'est comme ça qu'est née <span className="text-primary">MAISON SUD</span>.
           </p>
         </motion.div>
 
@@ -67,7 +67,7 @@ export function Story() {
           className="mt-16 sm:mt-20 pt-10 sm:pt-12 border-t border-border/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
         >
           <p className="text-xl sm:text-2xl md:text-3xl font-display font-bold uppercase tracking-wide">
-            ＲＩＶＡ, c'est pour ceux<br className="hidden sm:block" /> qui n'attendent pas.
+            MAISON SUD, c'est pour ceux<br className="hidden sm:block" /> qui n'attendent pas.
           </p>
           <div className="text-xs text-primary font-bold uppercase tracking-[0.3em] shrink-0">
             Fondé en 2025

@@ -49,7 +49,7 @@ export function Hero() {
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-[4.5rem] sm:text-7xl md:text-9xl lg:text-[12rem] font-display font-extrabold text-white tracking-tighter leading-none mb-4 sm:mb-6"
         >
-          ＲＩＶＡ<span className="text-primary">.</span>
+          MAISON SUD<span className="text-primary">.</span>
         </motion.h1>
 
         <motion.p
