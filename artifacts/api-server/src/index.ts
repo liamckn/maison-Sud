@@ -7,22 +7,30 @@ async function initStripe() {
   const databaseUrl = process.env.DATABASE_URL;
 
   if (!databaseUrl) {
-    throw new Error('DATABASE_URL environment variable is required for Stripe integration.');
+    logger.warn('DATABASE_URL not set — Stripe integration disabled');
+    return;
   }
 
-  logger.info('Initializing Stripe schema...');
-  await runMigrations({ databaseUrl, schema: 'stripe' });
-  logger.info('Stripe schema ready');
+  try {
+    logger.info('Initializing Stripe schema...');
+    await runMigrations({ databaseUrl, schema: 'stripe' });
+    logger.info('Stripe schema ready');
 
-  const stripeSync = await getStripeSync();
+    const stripeSync = await getStripeSync();
 
-  const webhookBaseUrl = `https://${process.env.REPLIT_DOMAINS?.split(',')[0]}`;
-  await stripeSync.findOrCreateManagedWebhook(`${webhookBaseUrl}/api/stripe/webhook`);
-  logger.info('Stripe webhook configured');
+    const domain = process.env.REPLIT_DOMAINS?.split(',')[0];
+    if (domain) {
+      const webhookBaseUrl = `https://${domain}`;
+      await stripeSync.findOrCreateManagedWebhook(`${webhookBaseUrl}/api/stripe/webhook`);
+      logger.info('Stripe webhook configured');
+    }
 
-  stripeSync.syncBackfill()
-    .then(() => logger.info('Stripe backfill complete'))
-    .catch((err) => logger.error({ err }, 'Stripe backfill error'));
+    stripeSync.syncBackfill()
+      .then(() => logger.info('Stripe backfill complete'))
+      .catch((err) => logger.error({ err }, 'Stripe backfill error'));
+  } catch (err) {
+    logger.error({ err }, 'Stripe initialization failed — payments will not work until resolved');
+  }
 }
 
 const rawPort = process.env["PORT"];
