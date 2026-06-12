@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useLocation } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowLeft, ShoppingBag, Check } from "lucide-react";
+import { ArrowLeft, ShoppingBag, Check, Loader2 } from "lucide-react";
 import { getProductById } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import { Navbar } from "@/components/Navbar";
@@ -17,6 +17,7 @@ function ProductPageInner() {
   const { toast } = useToast();
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [added, setAdded] = useState(false);
+  const [checkingOut, setCheckingOut] = useState(false);
   const allImages = product ? (product.images ?? [product.image]) : [];
   const [activeImg, setActiveImg] = useState(0);
 
@@ -44,6 +45,35 @@ function ProductPageInner() {
     setAdded(true);
     toast({ title: product.name + " ajouté", description: selectedSize ? `Taille : ${selectedSize}` : "" });
     setTimeout(() => setAdded(false), 2000);
+  };
+
+  const handleBuyNow = async () => {
+    if (product.sizes.length > 1 && !selectedSize) {
+      toast({ title: "Sélectionne une taille", description: "Choisis ta taille avant de commander." });
+      return;
+    }
+    setCheckingOut(true);
+    try {
+      const response = await fetch("/api/stripe/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          productId: product.id,
+          size: selectedSize || product.sizes[0],
+          quantity: 1,
+        }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(data.error || "Erreur de paiement");
+      }
+      if (data.url) {
+        window.location.href = data.url;
+      }
+    } catch (err: any) {
+      toast({ title: "Erreur", description: err.message || "Impossible d'accéder au paiement.", variant: "destructive" });
+      setCheckingOut(false);
+    }
   };
 
   return (
@@ -179,11 +209,19 @@ function ProductPageInner() {
               </button>
 
               <button
-                onClick={() => { handleAddToCart(); setTimeout(() => setIsCartOpen(true), 200); }}
+                onClick={handleBuyNow}
+                disabled={checkingOut}
                 data-testid="button-buy-now"
-                className="w-full h-12 sm:h-14 mt-3 border border-border/40 hover:border-foreground text-sm font-bold uppercase tracking-widest transition-all"
+                className="w-full h-12 sm:h-14 mt-3 border border-border/40 hover:border-foreground text-sm font-bold uppercase tracking-widest transition-all disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                Commander maintenant
+                {checkingOut ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Redirection…
+                  </>
+                ) : (
+                  "Commander maintenant"
+                )}
               </button>
 
               <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-border/10 space-y-3">
