@@ -31,7 +31,8 @@ async function getStripeCredentials(): Promise<{ secretKey: string; webhookSecre
   const data = await resp.json();
   const settings = data.items?.[0]?.settings;
 
-  if (!settings?.secret_key) {
+  const secretKey = settings?.secret ?? settings?.secret_key;
+  if (!secretKey) {
     throw new Error(
       'Stripe integration not connected or missing secret key. ' +
       'Connect Stripe via the Integrations tab first.'
@@ -39,7 +40,7 @@ async function getStripeCredentials(): Promise<{ secretKey: string; webhookSecre
   }
 
   return {
-    secretKey: settings.secret_key,
+    secretKey,
     webhookSecret: settings.webhook_secret,
   };
 }
