@@ -41,16 +41,19 @@ router.post('/stripe/checkout', async (req, res) => {
 
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price: priceId,
-          quantity,
-        },
-      ],
+      line_items: [{ price: priceId, quantity }],
       mode: 'payment',
+      // Collect shipping address for Printify fulfillment
+      shipping_address_collection: {
+        allowed_countries: [
+          'FR', 'BE', 'CH', 'LU', 'MC', 'GB', 'US', 'CA', 'DE', 'IT',
+          'ES', 'NL', 'PT', 'AT', 'SE', 'NO', 'DK', 'FI', 'IE', 'AU',
+        ],
+      },
+      phone_number_collection: { enabled: true },
       success_url: `${host}/?checkout=success`,
       cancel_url: `${host}/product/${productId}`,
-      metadata: { productId, size: size || '' },
+      metadata: { productId, size: size || 'M' },
     });
 
     res.json({ url: session.url });
