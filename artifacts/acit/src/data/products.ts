@@ -27,7 +27,7 @@ export const products: Product[] = [
     badge: "NOUVEAU",
     description: "Le t-shirt signature Maison Sud. Logo brodé sur la poitrine, coupe régulière en coton premium blanc. Inspiré par la lumière dorée de la Côte d'Azur.",
     details: ["100% Coton premium", "Coupe régulière", "Logo brodé poitrine", "Lavage à 30°C", "Fabriqué avec soin"],
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
+    sizes: ["S", "M", "L", "XL", "2XL", "3XL", "4XL"],
   },
 ];
 
