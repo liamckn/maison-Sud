@@ -25,8 +25,8 @@ export const products: Product[] = [
     ],
     imageFit: "contain",
     badge: "NOUVEAU",
-    description: "Le t-shirt signature Maison Sud. 100% coton ring-spun, teint en pièce pour un toucher doux et un look vintage. Coupe ample, tissu lourd — fait pour durer.",
-    details: ["100% coton ring-spun américain", "Tissu lourd 206 g/m²", "Teint en pièce (garment-dyed)", "Coupe ample", "Lavage à 30°C"],
+    description: "Le t-shirt signature Maison Sud. 100% coton, teint en pièce pour un toucher doux et un look vintage. Coupe ample, tissu lourd — fait pour durer.",
+    details: ["100% coton américain", "Tissu lourd 206 g/m²", "Teint en pièce (garment-dyed)", "Coupe ample", "Lavage à 30°C"],
     sizes: ["S", "M", "L", "XL", "2XL", "3XL", "4XL"],
   },
 ];
