@@ -1,0 +1,3 @@
+- [Maison Sud stack & integrations](maison-sud-stack.md) — Stripe live key via STRIPE_SECRET_KEY env var; Printify via PRINTIFY_API_TOKEN; shop ID 27907354; product 6a2dc04573ad2eacae0efe6d
+- [Stripe credentials production fix](stripe-prod-credentials.md) — REPLIT_CONNECTORS_HOSTNAME resolves to "helium" in production (unreachable); must use STRIPE_SECRET_KEY env var instead
+- [Printify fulfillment flow](printify-fulfillment.md) — order creation must be followed by send_to_production call; checkout route queries Stripe API directly to avoid stale DB cache
