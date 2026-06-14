@@ -1,6 +1,9 @@
 import { Instagram, Twitter } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-background border-t border-border/10 pt-16 sm:pt-24 pb-10 sm:pb-12 px-4 sm:px-6">
       <div className="container mx-auto max-w-7xl">
@@ -21,34 +24,33 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6">La Marque</h4>
+            <h4 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6">{t("footer.brandSection")}</h4>
             <ul className="space-y-3 sm:space-y-4">
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Notre Histoire</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Manifesto</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Boutiques</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Carrières</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.ourHistory")}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.manifesto")}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.stores")}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.careers")}</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6">Informations</h4>
+            <h4 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6">{t("footer.information")}</h4>
             <ul className="space-y-3 sm:space-y-4">
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Livraison & Retours</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Mentions Légales</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">Contact</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.shipping")}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.faq")}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.legal")}</a></li>
+              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.contact")}</a></li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-border/10 pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <p className="text-muted-foreground text-xs uppercase tracking-wider">
-            &copy; {new Date().getFullYear()} 𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱. Tous droits réservés.
+            &copy; {new Date().getFullYear()} 𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱. {t("footer.rights")}
           </p>
           <div className="flex gap-4 sm:gap-6 text-xs text-muted-foreground uppercase tracking-wider">
-            <span>FR / EUR</span>
-            <a href="#" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="#" className="hover:text-primary transition-colors">Terms</a>
+            <a href="#" className="hover:text-primary transition-colors">{t("footer.privacy")}</a>
+            <a href="#" className="hover:text-primary transition-colors">{t("footer.terms")}</a>
           </div>
         </div>
       </div>

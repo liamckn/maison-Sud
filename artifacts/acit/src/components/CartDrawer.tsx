@@ -2,9 +2,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Minus, Plus, ShoppingBag } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export function CartDrawer() {
   const { isCartOpen, setIsCartOpen, items, removeItem, updateQuantity, total } = useCart();
+  const { t } = useTranslation();
 
   return (
     <AnimatePresence>
@@ -25,7 +27,7 @@ export function CartDrawer() {
             className="fixed top-0 right-0 h-full w-full max-w-md bg-background border-l border-border/10 shadow-2xl z-50 flex flex-col"
           >
             <div className="flex items-center justify-between p-6 border-b border-border/10">
-              <h2 className="text-xl font-display font-bold uppercase tracking-wider text-primary">Panier</h2>
+              <h2 className="text-xl font-display font-bold uppercase tracking-wider text-primary">{t("cart.title")}</h2>
               <button
                 onClick={() => setIsCartOpen(false)}
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -38,7 +40,7 @@ export function CartDrawer() {
               {items.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-muted-foreground space-y-4">
                   <ShoppingBag className="h-12 w-12 opacity-20" />
-                  <p className="text-sm uppercase tracking-widest">Votre panier est vide</p>
+                  <p className="text-sm uppercase tracking-widest">{t("cart.empty")}</p>
                 </div>
               ) : (
                 <div className="space-y-6">
@@ -84,14 +86,14 @@ export function CartDrawer() {
 
             <div className="p-6 border-t border-border/10 bg-background/50 backdrop-blur-md">
               <div className="flex items-center justify-between mb-6">
-                <span className="text-muted-foreground uppercase tracking-wider text-sm">Total</span>
+                <span className="text-muted-foreground uppercase tracking-wider text-sm">{t("cart.total")}</span>
                 <span className="font-display font-bold text-2xl text-primary">{total}€</span>
               </div>
-              <Button 
+              <Button
                 className="w-full rounded-none bg-primary text-primary-foreground hover:bg-primary/90 hover:scale-[1.02] transition-all h-14 uppercase tracking-widest font-bold"
                 disabled={items.length === 0}
               >
-                Commander
+                {t("cart.checkout")}
               </Button>
             </div>
           </motion.div>

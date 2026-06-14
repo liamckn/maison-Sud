@@ -8,6 +8,7 @@ import { Navbar } from "@/components/Navbar";
 import { CartDrawer } from "@/components/CartDrawer";
 import { CartProvider } from "@/context/CartContext";
 import { useToast } from "@/hooks/use-toast";
+import { useTranslation } from "react-i18next";
 
 function ProductPageInner() {
   const { id } = useParams<{ id: string }>();
@@ -15,6 +16,7 @@ function ProductPageInner() {
   const product = getProductById(id ?? "");
   const { addItem, setIsCartOpen } = useCart();
   const { toast } = useToast();
+  const { t } = useTranslation();
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [added, setAdded] = useState(false);
   const [checkingOut, setCheckingOut] = useState(false);
@@ -27,9 +29,9 @@ function ProductPageInner() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
-          <p className="text-muted-foreground text-sm uppercase tracking-widest mb-6">Produit introuvable</p>
+          <p className="text-muted-foreground text-sm uppercase tracking-widest mb-6">{t("product.notFound")}</p>
           <button onClick={() => setLocation("/")} className="text-primary underline underline-offset-4 text-sm uppercase tracking-widest">
-            Retour à l'accueil
+            {t("product.backHome")}
           </button>
         </div>
       </div>
@@ -38,18 +40,18 @@ function ProductPageInner() {
 
   const handleAddToCart = () => {
     if (product.sizes.length > 1 && !selectedSize) {
-      toast({ title: "Sélectionne une taille", description: "Choisis ta taille avant d'ajouter au panier." });
+      toast({ title: t("product.selectSizeTitle"), description: t("product.selectSizeDesc") });
       return;
     }
     addItem({ ...product, selectedSize: selectedSize || product.sizes[0] });
     setAdded(true);
-    toast({ title: product.name + " ajouté", description: selectedSize ? `Taille : ${selectedSize}` : "" });
+    toast({ title: t("product.addedTitle", { name: product.name }), description: selectedSize ? t("product.addedSize", { size: selectedSize }) : "" });
     setTimeout(() => setAdded(false), 2000);
   };
 
   const handleBuyNow = async () => {
     if (product.sizes.length > 1 && !selectedSize) {
-      toast({ title: "Sélectionne une taille", description: "Choisis ta taille avant de commander." });
+      toast({ title: t("product.selectSizeTitle"), description: t("product.selectSizeBuyDesc") });
       return;
     }
     setCheckingOut(true);
@@ -65,13 +67,13 @@ function ProductPageInner() {
       });
       const data = await response.json();
       if (!response.ok) {
-        throw new Error(data.error || "Erreur de paiement");
+        throw new Error(data.error || t("product.paymentError"));
       }
       if (data.url) {
         window.location.href = data.url;
       }
     } catch (err: any) {
-      toast({ title: "Erreur", description: err.message || "Impossible d'accéder au paiement.", variant: "destructive" });
+      toast({ title: t("product.error"), description: err.message || t("product.paymentErrorDesc"), variant: "destructive" });
       setCheckingOut(false);
     }
   };
@@ -92,7 +94,7 @@ function ProductPageInner() {
             data-testid="button-back"
           >
             <ArrowLeft className="h-4 w-4" />
-            Retour à la collection
+            {t("product.back")}
           </motion.button>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-16 items-start">
@@ -102,7 +104,6 @@ function ProductPageInner() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col gap-3"
             >
-              {/* Main image */}
               <div className="relative border border-border/20 overflow-hidden bg-[#f5f5f5]">
                 {product.badge && (
                   <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-10 bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1">
@@ -118,7 +119,6 @@ function ProductPageInner() {
                 />
               </div>
 
-              {/* Thumbnails */}
               {allImages.length > 1 && (
                 <div className="flex gap-2 sm:gap-3">
                   {allImages.map((src, i) => (
@@ -131,7 +131,7 @@ function ProductPageInner() {
                     >
                       <img
                         src={src}
-                        alt={`Vue ${i + 1}`}
+                        alt={`${i + 1}`}
                         className="w-full aspect-[3/4] object-cover object-top"
                       />
                     </button>
@@ -164,7 +164,7 @@ function ProductPageInner() {
               {product.sizes.length > 1 && (
                 <div className="mb-6 sm:mb-8">
                   <p className="text-xs uppercase tracking-widest mb-3 sm:mb-4 font-bold">
-                    Taille
+                    {t("product.size")}
                     {selectedSize && <span className="ml-2 text-primary font-normal">— {selectedSize}</span>}
                   </p>
                   <div className="flex flex-wrap gap-2" data-testid="size-selector">
@@ -198,12 +198,12 @@ function ProductPageInner() {
                 {added ? (
                   <>
                     <Check className="h-4 w-4" />
-                    Ajouté au panier
+                    {t("product.added")}
                   </>
                 ) : (
                   <>
                     <ShoppingBag className="h-4 w-4" />
-                    Ajouter au panier
+                    {t("product.addToCart")}
                   </>
                 )}
               </button>
@@ -217,15 +217,15 @@ function ProductPageInner() {
                 {checkingOut ? (
                   <>
                     <Loader2 className="h-4 w-4 animate-spin" />
-                    Redirection…
+                    {t("product.redirecting")}
                   </>
                 ) : (
-                  "Commander maintenant"
+                  t("product.buyNow")
                 )}
               </button>
 
               <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-border/10 space-y-3">
-                <p className="text-xs uppercase tracking-widest font-bold mb-3 sm:mb-4">Détails du produit</p>
+                <p className="text-xs uppercase tracking-widest font-bold mb-3 sm:mb-4">{t("product.details")}</p>
                 {product.details.map((detail, i) => (
                   <div key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
                     <div className="w-1 h-1 bg-primary rounded-full shrink-0" />
@@ -236,15 +236,15 @@ function ProductPageInner() {
 
               <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/10 grid grid-cols-3 gap-3 sm:gap-4 text-center">
                 <div>
-                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Livraison</p>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground">3-5 jours</p>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">{t("product.shipping")}</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">{t("product.shippingDays")}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Retours</p>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground">30 jours offerts</p>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">{t("product.returns")}</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">{t("product.returnsDays")}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Origine</p>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">{t("product.origin")}</p>
                   <p className="text-[10px] sm:text-xs text-muted-foreground">Made in France</p>
                 </div>
               </div>

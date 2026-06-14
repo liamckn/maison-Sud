@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "men": "Uomo",
+    "women": "Donna",
+    "kids": "Bambini",
+    "collections": "Collezioni",
+    "lookbook": "Lookbook",
+    "cart": "Carrello"
+  },
+  "hero": {
+    "tagline": "L'ESTATE È UNO STATO D'ANIMO",
+    "madeInFrance": "Made in France",
+    "discover": "Scopri",
+    "history": "La Nostra Storia",
+    "scroll": "Scroll"
+  },
+  "collection": {
+    "chapter": "Capitolo I",
+    "title": "La Collezione",
+    "comingSoon": "Prossimamente",
+    "comingSoonTitle": "Prossimamente",
+    "comingSoonDesc": "La collezione arriva quest'estate.",
+    "seeProduct": "Vedi prodotto"
+  },
+  "lifestyle": {
+    "brand": "Il Marchio",
+    "title": "L'essenza del\nMediterraneo",
+    "description": "Maison Sud è più di un marchio di abbigliamento. È un inno alla giovinezza, alle serate che si prolungano, alla sabbia calda sotto i piedi e all'eleganza disinvolta della Riviera Francese. Pensato per chi vive ogni istante intensamente.",
+    "statDelivery": "Consegna",
+    "statVibes": "Vibes Estive",
+    "statMadeIn": "Made in France"
+  },
+  "story": {
+    "chapter": "Origini",
+    "title": "La Nostra\nStoria",
+    "p0": "Tutto è iniziato con due adolescenti, un sogno troppo grande per la loro età e un'ossessione per il sud della Francia.",
+    "p1": "Non avevamo soldi, né contatti, né uno spazio. Avevamo solo una visione: creare un marchio che parlasse davvero ai giovani. Non un marchio fatto da adulti che cercano di capire la nostra generazione. Un marchio nato dall'interno.",
+    "p2": "D'estate, guardavamo Saint-Tropez, Monaco, il Mediterraneo — quel mondo di libertà, sole e bella vita — e ci dicevamo che quella sensazione, quello stato d'animo, doveva esistere nei vestiti che indossiamo.",
+    "p3": "Non in un ufficio. Non in una riunione. Nella mente di due ragazzi che si rifiutavano di aspettare di essere grandi per cominciare a vivere.",
+    "p4": "Oggi, ogni pezzo che creiamo porta quella energia. L'estate come stato d'animo. La Côte d'Azur come ispirazione. La giovinezza come forza.",
+    "closing": "Maison Sud è per chi non aspetta.",
+    "founded": "Fondato nel 2025"
+  },
+  "newsletter": {
+    "vipAccess": "Accesso VIP",
+    "joinClub": "Entra nel Club",
+    "description": "Iscriviti per accedere in anteprima alle nostre edizioni limitate ed eventi esclusivi sulla Côte d'Azur.",
+    "emailPlaceholder": "IL TUO INDIRIZZO EMAIL",
+    "subscribe": "Iscriviti",
+    "toastTitle": "Benvenuto nel Club Maison Sud",
+    "toastDesc": "Sei ora nella lista VIP."
+  },
+  "cart": {
+    "title": "Carrello",
+    "empty": "Il tuo carrello è vuoto",
+    "total": "Totale",
+    "checkout": "Acquista"
+  },
+  "footer": {
+    "brandSection": "Il Marchio",
+    "ourHistory": "La Nostra Storia",
+    "manifesto": "Manifesto",
+    "stores": "Negozi",
+    "careers": "Carriere",
+    "information": "Informazioni",
+    "shipping": "Spedizioni & Resi",
+    "faq": "FAQ",
+    "legal": "Note Legali",
+    "contact": "Contatto",
+    "rights": "Tutti i diritti riservati.",
+    "privacy": "Privacy",
+    "terms": "Termini"
+  },
+  "product": {
+    "back": "Torna alla collezione",
+    "size": "Taglia",
+    "addToCart": "Aggiungi al carrello",
+    "added": "Aggiunto al carrello",
+    "buyNow": "Acquista ora",
+    "redirecting": "Reindirizzamento…",
+    "details": "Dettagli prodotto",
+    "shipping": "Spedizione",
+    "shippingDays": "3-5 giorni",
+    "returns": "Resi",
+    "returnsDays": "30 giorni gratuiti",
+    "origin": "Origine",
+    "selectSizeTitle": "Seleziona una taglia",
+    "selectSizeDesc": "Scegli la tua taglia prima di aggiungere al carrello.",
+    "selectSizeBuyDesc": "Scegli la tua taglia prima di ordinare.",
+    "notFound": "Prodotto non trovato",
+    "backHome": "Torna alla home",
+    "addedTitle": "{{name}} aggiunto",
+    "addedSize": "Taglia: {{size}}",
+    "paymentError": "Errore di pagamento",
+    "paymentErrorDesc": "Impossibile procedere al pagamento.",
+    "error": "Errore"
+  }
+}

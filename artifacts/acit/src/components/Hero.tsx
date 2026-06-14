@@ -3,9 +3,11 @@ import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@assets/WhatsApp_Image_2026-06-14_at_22.17.44_1781468321927.jpeg";
+import { useTranslation } from "react-i18next";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -58,7 +60,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="text-sm sm:text-xl md:text-3xl font-light tracking-[0.15em] sm:tracking-[0.2em] text-white/60 uppercase max-w-xs sm:max-w-xl md:max-w-2xl"
         >
-          L'ÉTÉ EST UN ÉTAT D'ESPRIT
+          {t("hero.tagline")}
         </motion.p>
 
         <motion.div
@@ -68,7 +70,7 @@ export function Hero() {
           className="flex items-center gap-3 mt-5 sm:mt-7"
         >
           <span className="w-6 h-px bg-white/30" />
-          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-white/50">Made in France</span>
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-white/50">{t("hero.madeInFrance")}</span>
           <span className="w-6 h-px bg-white/30" />
         </motion.div>
 
@@ -82,14 +84,14 @@ export function Hero() {
             className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-12 sm:h-14 px-8 sm:px-12 text-xs sm:text-sm uppercase tracking-widest font-bold w-full sm:w-auto"
             onClick={() => document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" })}
           >
-            Découvrir
+            {t("hero.discover")}
           </Button>
           <Button
             variant="outline"
             className="rounded-none border-white/40 text-white hover:bg-white/10 hover:text-white h-12 sm:h-14 px-8 sm:px-12 text-xs sm:text-sm uppercase tracking-widest font-bold w-full sm:w-auto"
             onClick={() => document.getElementById("lamarque")?.scrollIntoView({ behavior: "smooth" })}
           >
-            L'Histoire
+            {t("hero.history")}
           </Button>
         </motion.div>
       </motion.div>
@@ -100,7 +102,7 @@ export function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 sm:gap-4 text-white/50"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.3em]">{t("hero.scroll")}</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}

@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "men": "Men",
+    "women": "Women",
+    "kids": "Kids",
+    "collections": "Collections",
+    "lookbook": "Lookbook",
+    "cart": "Cart"
+  },
+  "hero": {
+    "tagline": "SUMMER IS A STATE OF MIND",
+    "madeInFrance": "Made in France",
+    "discover": "Discover",
+    "history": "Our Story",
+    "scroll": "Scroll"
+  },
+  "collection": {
+    "chapter": "Chapter I",
+    "title": "The Collection",
+    "comingSoon": "Coming soon",
+    "comingSoonTitle": "Coming Soon",
+    "comingSoonDesc": "The collection arrives this summer.",
+    "seeProduct": "View product"
+  },
+  "lifestyle": {
+    "brand": "The Brand",
+    "title": "The essence of the\nMediterranean",
+    "description": "Maison Sud is more than a clothing brand. It's an ode to youth, to evenings that stretch on, to warm sand underfoot and the effortless elegance of the French Riviera. Designed for those who live every moment intensely.",
+    "statDelivery": "Delivery",
+    "statVibes": "Summer Vibes",
+    "statMadeIn": "Made in France"
+  },
+  "story": {
+    "chapter": "Origins",
+    "title": "Our\nStory",
+    "p0": "It all started with two teenagers, a dream too big for their age, and an obsession with the south of France.",
+    "p1": "We had no money, no connections, no space. We just had a vision: to create a brand that truly speaks to young people. Not a brand made by adults trying to understand our generation. A brand born from within it.",
+    "p2": "In the summer, we'd look at Saint-Tropez, Monaco, the Mediterranean — that world of freedom, sunshine, and the good life — and tell ourselves that this feeling, this state of mind, had to exist in the clothes we wear.",
+    "p3": "Not in an office. Not in a meeting. In the minds of two kids who refused to wait until they were grown to start living.",
+    "p4": "Today, every piece we create carries that energy. Summer as a state of mind. The Côte d'Azur as inspiration. Youth as a strength.",
+    "closing": "Maison Sud is for those who don't wait.",
+    "founded": "Founded in 2025"
+  },
+  "newsletter": {
+    "vipAccess": "VIP Access",
+    "joinClub": "Join the Club",
+    "description": "Sign up for early access to our limited editions and exclusive events on the Côte d'Azur.",
+    "emailPlaceholder": "YOUR EMAIL ADDRESS",
+    "subscribe": "Subscribe",
+    "toastTitle": "Welcome to the Maison Sud Club",
+    "toastDesc": "You are now on the VIP list."
+  },
+  "cart": {
+    "title": "Cart",
+    "empty": "Your cart is empty",
+    "total": "Total",
+    "checkout": "Checkout"
+  },
+  "footer": {
+    "brandSection": "The Brand",
+    "ourHistory": "Our Story",
+    "manifesto": "Manifesto",
+    "stores": "Stores",
+    "careers": "Careers",
+    "information": "Information",
+    "shipping": "Shipping & Returns",
+    "faq": "FAQ",
+    "legal": "Legal Notice",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "product": {
+    "back": "Back to collection",
+    "size": "Size",
+    "addToCart": "Add to cart",
+    "added": "Added to cart",
+    "buyNow": "Buy now",
+    "redirecting": "Redirecting…",
+    "details": "Product details",
+    "shipping": "Shipping",
+    "shippingDays": "3-5 days",
+    "returns": "Returns",
+    "returnsDays": "30 days free",
+    "origin": "Origin",
+    "selectSizeTitle": "Select a size",
+    "selectSizeDesc": "Please choose your size before adding to cart.",
+    "selectSizeBuyDesc": "Please choose your size before ordering.",
+    "notFound": "Product not found",
+    "backHome": "Back to home",
+    "addedTitle": "{{name}} added",
+    "addedSize": "Size: {{size}}",
+    "paymentError": "Payment error",
+    "paymentErrorDesc": "Unable to proceed to payment.",
+    "error": "Error"
+  }
+}

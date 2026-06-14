@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "men": "男装",
+    "women": "女装",
+    "kids": "童装",
+    "collections": "系列",
+    "lookbook": "时尚册",
+    "cart": "购物车"
+  },
+  "hero": {
+    "tagline": "夏天是一种心境",
+    "madeInFrance": "法国制造",
+    "discover": "探索",
+    "history": "品牌故事",
+    "scroll": "滚动"
+  },
+  "collection": {
+    "chapter": "第一章",
+    "title": "系列",
+    "comingSoon": "即将推出",
+    "comingSoonTitle": "敬请期待",
+    "comingSoonDesc": "系列将于今夏上线。",
+    "seeProduct": "查看产品"
+  },
+  "lifestyle": {
+    "brand": "品牌",
+    "title": "地中海的\n精髓",
+    "description": "Maison Sud 不仅仅是一个服装品牌。它是对青春的颂歌，对悠长夜晚的回忆，对脚下温热沙滩的感受，以及法国里维埃拉那份随性优雅的诠释。专为那些全情投入生活的人而设计。",
+    "statDelivery": "配送",
+    "statVibes": "夏日氛围",
+    "statMadeIn": "法国制造"
+  },
+  "story": {
+    "chapter": "起源",
+    "title": "我们的\n故事",
+    "p0": "一切始于两个少年，一个远超他们年龄的梦想，以及对法国南部的执着。",
+    "p1": "我们没有资金，没有人脉，没有场地。我们只有一个愿景：创建一个真正属于年轻人的品牌。不是由成年人来诠释年轻一代，而是从内部生长出来的品牌。",
+    "p2": "夏天，我们眺望圣特罗佩、摩纳哥、地中海——那个自由、阳光和美好生活的世界——我们对自己说，这种感觉，这种心境，应该存在于我们穿着的衣物中。",
+    "p3": "不是在办公室里，不是在会议室里，而是在两个孩子的脑海中——他们拒绝等到长大才开始生活。",
+    "p4": "今天，我们创作的每一件单品都承载着这份能量。夏天作为一种心境，蔚蓝海岸作为灵感，青春作为力量。",
+    "closing": "Maison Sud 属于那些不等待的人。",
+    "founded": "创立于2025年"
+  },
+  "newsletter": {
+    "vipAccess": "VIP专属",
+    "joinClub": "加入俱乐部",
+    "description": "注册即可优先获取我们的限量版系列及蔚蓝海岸独家活动资讯。",
+    "emailPlaceholder": "您的电子邮箱",
+    "subscribe": "订阅",
+    "toastTitle": "欢迎加入 Maison Sud 俱乐部",
+    "toastDesc": "您已成功加入VIP名单。"
+  },
+  "cart": {
+    "title": "购物车",
+    "empty": "您的购物车为空",
+    "total": "合计",
+    "checkout": "结账"
+  },
+  "footer": {
+    "brandSection": "品牌",
+    "ourHistory": "品牌故事",
+    "manifesto": "宣言",
+    "stores": "门店",
+    "careers": "招聘",
+    "information": "信息",
+    "shipping": "配送与退货",
+    "faq": "常见问题",
+    "legal": "法律声明",
+    "contact": "联系我们",
+    "rights": "版权所有。",
+    "privacy": "隐私政策",
+    "terms": "使用条款"
+  },
+  "product": {
+    "back": "返回系列",
+    "size": "尺码",
+    "addToCart": "加入购物车",
+    "added": "已加入购物车",
+    "buyNow": "立即购买",
+    "redirecting": "跳转中…",
+    "details": "产品详情",
+    "shipping": "配送",
+    "shippingDays": "3-5天",
+    "returns": "退货",
+    "returnsDays": "30天免费退货",
+    "origin": "产地",
+    "selectSizeTitle": "请选择尺码",
+    "selectSizeDesc": "请在加入购物车前选择尺码。",
+    "selectSizeBuyDesc": "请在下单前选择尺码。",
+    "notFound": "未找到产品",
+    "backHome": "返回首页",
+    "addedTitle": "{{name}} 已添加",
+    "addedSize": "尺码：{{size}}",
+    "paymentError": "支付错误",
+    "paymentErrorDesc": "无法跳转至支付页面。",
+    "error": "错误"
+  }
+}

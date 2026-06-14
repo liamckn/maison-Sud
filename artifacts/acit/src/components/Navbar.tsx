@@ -1,19 +1,57 @@
-import { useEffect, useState } from "react";
-import { ShoppingBag, Search, Menu, X } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/context/CartContext";
+import { useTranslation } from "react-i18next";
+
+const LANGUAGES = [
+  { code: "fr", label: "FR" },
+  { code: "en", label: "EN" },
+  { code: "es", label: "ES" },
+  { code: "it", label: "IT" },
+  { code: "de", label: "DE" },
+  { code: "zh", label: "ZH" },
+  { code: "pt", label: "PT" },
+  { code: "ru", label: "RU" },
+  { code: "ja", label: "JA" },
+  { code: "ar", label: "AR" },
+];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
   const { itemCount, setIsCartOpen } = useCart();
+  const { t, i18n } = useTranslation();
+
+  const currentLang = LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0];
+
+  const changeLanguage = (code: string) => {
+    i18n.changeLanguage(code);
+    localStorage.setItem("lang", code);
+    setLangOpen(false);
+    document.documentElement.dir = code === "ar" ? "rtl" : "ltr";
+  };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    document.documentElement.dir = i18n.language === "ar" ? "rtl" : "ltr";
+  }, [i18n.language]);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
   const scrollTo = (id: string) => {
@@ -25,31 +63,25 @@ export function Navbar() {
   };
 
   const leftLinks = [
-    { label: "Homme", id: "collection" },
-    { label: "Femme", id: "collection" },
-    { label: "Enfant", id: "collection" },
+    { label: t("nav.men"), id: "collection" },
+    { label: t("nav.women"), id: "collection" },
+    { label: t("nav.kids"), id: "collection" },
   ];
 
   const rightLinks = [
-    { label: "Collections", id: "collection" },
-    { label: "Lookbook", id: "lifestyle" },
+    { label: t("nav.collections"), id: "collection" },
+    { label: t("nav.lookbook"), id: "lifestyle" },
   ];
 
   return (
     <>
-      <nav
-        className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${
-          isScrolled || menuOpen
-            ? "bg-white border-b border-black/10 py-3"
-            : "bg-white border-b border-black/10 py-3"
-        }`}
-      >
+      <nav className="fixed top-0 left-0 w-full z-40 bg-white border-b border-black/10 transition-all duration-300">
         <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-12">
 
           <div className="hidden md:flex items-center gap-7 flex-1">
-            {leftLinks.map((link) => (
+            {leftLinks.map((link, i) => (
               <button
-                key={link.id}
+                key={i}
                 onClick={() => scrollTo(link.id)}
                 className="text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
               >
@@ -72,19 +104,55 @@ export function Navbar() {
             </span>
           </div>
 
-          <div className="hidden md:flex items-center gap-7 flex-1 justify-end">
-            {rightLinks.map((link) => (
+          <div className="hidden md:flex items-center gap-5 flex-1 justify-end">
+            {rightLinks.map((link, i) => (
               <button
-                key={link.id}
+                key={i}
                 onClick={() => scrollTo(link.id)}
                 className="text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
               >
                 {link.label}
               </button>
             ))}
+
+            <div ref={langRef} className="relative">
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                className="flex items-center gap-0.5 text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors"
+              >
+                {currentLang.label}
+                <ChevronDown className="h-3 w-3 mt-px" />
+              </button>
+              <AnimatePresence>
+                {langOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 top-full mt-2 bg-white border border-black/10 shadow-lg py-1 min-w-[60px] z-50"
+                  >
+                    {LANGUAGES.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => changeLanguage(lang.code)}
+                        className={`block w-full text-left px-3 py-1.5 text-xs font-medium uppercase tracking-widest transition-colors ${
+                          lang.code === i18n.language
+                            ? "text-primary"
+                            : "text-foreground hover:text-primary"
+                        }`}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
             <button
               onClick={() => setIsCartOpen(true)}
-              className="relative ml-2 hover:text-primary transition-colors flex items-center gap-1.5 group"
+              className="relative ml-1 hover:text-primary transition-colors"
             >
               <div className="relative">
                 <ShoppingBag className="h-[18px] w-[18px]" />
@@ -97,7 +165,41 @@ export function Navbar() {
             </button>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-3">
+            <div ref={langRef} className="relative">
+              <button
+                onClick={() => setLangOpen((v) => !v)}
+                className="text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors flex items-center gap-0.5"
+              >
+                {currentLang.label}
+                <ChevronDown className="h-3 w-3" />
+              </button>
+              <AnimatePresence>
+                {langOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 top-full mt-2 bg-white border border-black/10 shadow-lg py-1 min-w-[60px] z-50 grid grid-cols-2"
+                  >
+                    {LANGUAGES.map((lang) => (
+                      <button
+                        key={lang.code}
+                        onClick={() => changeLanguage(lang.code)}
+                        className={`block text-left px-3 py-1.5 text-xs font-medium uppercase tracking-widest transition-colors ${
+                          lang.code === i18n.language
+                            ? "text-primary"
+                            : "text-foreground hover:text-primary"
+                        }`}
+                      >
+                        {lang.label}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             <button
               onClick={() => setIsCartOpen(true)}
               className="relative p-1 hover:text-primary transition-colors"
@@ -120,12 +222,12 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-[61px] left-0 w-full z-30 bg-white border-b border-black/10 md:hidden"
+            className="fixed top-[49px] left-0 w-full z-30 bg-white border-b border-black/10 md:hidden"
           >
             <div className="flex flex-col px-6 py-4">
               {[...leftLinks, ...rightLinks].map((link, i) => (
                 <button
-                  key={link.id + i}
+                  key={i}
                   onClick={() => scrollTo(link.id)}
                   className="text-left text-sm font-medium uppercase tracking-widest py-3.5 border-b border-black/6 hover:text-primary transition-colors last:border-0"
                 >

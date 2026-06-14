@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "men": "Herren",
+    "women": "Damen",
+    "kids": "Kinder",
+    "collections": "Kollektionen",
+    "lookbook": "Lookbook",
+    "cart": "Warenkorb"
+  },
+  "hero": {
+    "tagline": "SOMMER IST EINE GEISTESHALTUNG",
+    "madeInFrance": "Made in France",
+    "discover": "Entdecken",
+    "history": "Unsere Geschichte",
+    "scroll": "Scroll"
+  },
+  "collection": {
+    "chapter": "Kapitel I",
+    "title": "Die Kollektion",
+    "comingSoon": "Demnächst verfügbar",
+    "comingSoonTitle": "Demnächst",
+    "comingSoonDesc": "Die Kollektion kommt diesen Sommer.",
+    "seeProduct": "Produkt ansehen"
+  },
+  "lifestyle": {
+    "brand": "Die Marke",
+    "title": "Das Wesen des\nMittelmeers",
+    "description": "Maison Sud ist mehr als eine Modemarke. Es ist eine Hymne an die Jugend, an Abende, die sich dehnen, an warmen Sand unter den Füßen und an die mühelose Eleganz der Côte d'Azur. Entworfen für diejenigen, die jeden Moment intensiv leben.",
+    "statDelivery": "Lieferung",
+    "statVibes": "Sommer-Vibes",
+    "statMadeIn": "Made in France"
+  },
+  "story": {
+    "chapter": "Ursprünge",
+    "title": "Unsere\nGeschichte",
+    "p0": "Alles begann mit zwei Teenagern, einem Traum, der zu groß für ihr Alter war, und einer Obsession für den Süden Frankreichs.",
+    "p1": "Wir hatten kein Geld, keine Verbindungen, keinen Raum. Wir hatten nur eine Vision: eine Marke zu schaffen, die wirklich mit jungen Menschen spricht. Keine Marke, die von Erwachsenen gemacht wird, die versuchen, unsere Generation zu verstehen. Eine Marke, die von innen heraus geboren wurde.",
+    "p2": "Im Sommer schauten wir auf Saint-Tropez, Monaco, das Mittelmeer — diese Welt der Freiheit, Sonne und des schönen Lebens — und sagten uns, dass dieses Gefühl, diese Geisteshaltung, in den Kleidungsstücken existieren muss, die wir tragen.",
+    "p3": "Nicht in einem Büro. Nicht in einem Meeting. Im Kopf zweier Kinder, die sich weigerten zu warten, bis sie groß waren, um zu leben.",
+    "p4": "Heute trägt jedes Stück, das wir kreieren, diese Energie. Sommer als Geisteshaltung. Die Côte d'Azur als Inspiration. Jugend als Kraft.",
+    "closing": "Maison Sud ist für diejenigen, die nicht warten.",
+    "founded": "Gegründet 2025"
+  },
+  "newsletter": {
+    "vipAccess": "VIP-Zugang",
+    "joinClub": "Dem Club beitreten",
+    "description": "Melde dich an, um frühzeitig Zugang zu unseren limitierten Editionen und exklusiven Events an der Côte d'Azur zu erhalten.",
+    "emailPlaceholder": "DEINE E-MAIL-ADRESSE",
+    "subscribe": "Anmelden",
+    "toastTitle": "Willkommen im Maison Sud Club",
+    "toastDesc": "Du bist jetzt auf der VIP-Liste."
+  },
+  "cart": {
+    "title": "Warenkorb",
+    "empty": "Dein Warenkorb ist leer",
+    "total": "Gesamt",
+    "checkout": "Bestellen"
+  },
+  "footer": {
+    "brandSection": "Die Marke",
+    "ourHistory": "Unsere Geschichte",
+    "manifesto": "Manifest",
+    "stores": "Geschäfte",
+    "careers": "Karriere",
+    "information": "Informationen",
+    "shipping": "Versand & Rücksendungen",
+    "faq": "FAQ",
+    "legal": "Impressum",
+    "contact": "Kontakt",
+    "rights": "Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "terms": "AGB"
+  },
+  "product": {
+    "back": "Zurück zur Kollektion",
+    "size": "Größe",
+    "addToCart": "In den Warenkorb",
+    "added": "In den Warenkorb gelegt",
+    "buyNow": "Jetzt kaufen",
+    "redirecting": "Weiterleitung…",
+    "details": "Produktdetails",
+    "shipping": "Lieferung",
+    "shippingDays": "3-5 Tage",
+    "returns": "Rücksendungen",
+    "returnsDays": "30 Tage kostenlos",
+    "origin": "Herkunft",
+    "selectSizeTitle": "Größe wählen",
+    "selectSizeDesc": "Bitte wähle deine Größe, bevor du in den Warenkorb legst.",
+    "selectSizeBuyDesc": "Bitte wähle deine Größe, bevor du bestellst.",
+    "notFound": "Produkt nicht gefunden",
+    "backHome": "Zurück zur Startseite",
+    "addedTitle": "{{name}} hinzugefügt",
+    "addedSize": "Größe: {{size}}",
+    "paymentError": "Zahlungsfehler",
+    "paymentErrorDesc": "Zahlung nicht möglich.",
+    "error": "Fehler"
+  }
+}

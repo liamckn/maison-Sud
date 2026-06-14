@@ -1,13 +1,16 @@
 import { motion } from "framer-motion";
-
-const stats = [
-  { value: "100%", label: "Made with Love" },
-  { value: "3-5J", label: "Livraison" },
-  { value: "∞", label: "Vibes Estivales" },
-  { value: "🇫🇷", label: "Made in France" },
-];
+import { useTranslation } from "react-i18next";
 
 export function Lifestyle() {
+  const { t } = useTranslation();
+
+  const stats = [
+    { value: "100%", label: "Made with Love" },
+    { value: "3-5J", label: t("lifestyle.statDelivery") },
+    { value: "∞", label: t("lifestyle.statVibes") },
+    { value: "🇫🇷", label: t("lifestyle.statMadeIn") },
+  ];
+
   return (
     <section id="lamarque" className="bg-background py-16 sm:py-32 px-4 sm:px-6 relative overflow-hidden">
       <div className="container mx-auto max-w-4xl">
@@ -17,12 +20,12 @@ export function Lifestyle() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="text-xs sm:text-sm text-primary font-bold uppercase tracking-[0.3em] mb-3 sm:mb-4">La Marque</h2>
-          <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wider mb-6 sm:mb-8 leading-tight">
-            L'essence de la<br />Méditerranée
+          <h2 className="text-xs sm:text-sm text-primary font-bold uppercase tracking-[0.3em] mb-3 sm:mb-4">{t("lifestyle.brand")}</h2>
+          <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wider mb-6 sm:mb-8 leading-tight whitespace-pre-line">
+            {t("lifestyle.title")}
           </h3>
           <p className="text-muted-foreground text-base sm:text-lg mb-8 sm:mb-10 leading-relaxed font-light max-w-2xl">
-            𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱 est plus qu'une marque de vêtements. C'est un hymne à la jeunesse, aux soirées qui s'étirent, au sable chaud sous les pieds et à l'élégance désinvolte de la French Riviera. Conçu pour ceux qui vivent chaque instant intensément.
+            {t("lifestyle.description")}
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 mt-8 sm:mt-12 pt-8 sm:pt-12 border-t border-border/10">

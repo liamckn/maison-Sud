@@ -3,18 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export function Newsletter() {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
+  const { t } = useTranslation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     toast({
-      title: "Bienvenue au Club 𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱",
-      description: "Vous êtes désormais sur la liste VIP.",
+      title: t("newsletter.toastTitle"),
+      description: t("newsletter.toastDesc"),
     });
     setEmail("");
   };
@@ -32,18 +34,18 @@ export function Newsletter() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.4em] mb-4 sm:mb-6 opacity-80">Accès VIP</h2>
+          <h2 className="text-xs sm:text-sm font-bold uppercase tracking-[0.4em] mb-4 sm:mb-6 opacity-80">{t("newsletter.vipAccess")}</h2>
           <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-widest mb-6 sm:mb-8">
-            Rejoignez le Club
+            {t("newsletter.joinClub")}
           </h3>
           <p className="mb-8 sm:mb-12 text-primary-foreground/80 font-light text-base sm:text-lg px-2 sm:px-0">
-            Inscrivez-vous pour accéder en avant-première à nos éditions limitées et événements exclusifs sur la Côte d'Azur.
+            {t("newsletter.description")}
           </p>
 
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Input
               type="email"
-              placeholder="VOTRE ADRESSE EMAIL"
+              placeholder={t("newsletter.emailPlaceholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="h-12 sm:h-14 bg-transparent border-primary-foreground/30 text-primary-foreground placeholder:text-primary-foreground/50 rounded-none focus-visible:ring-primary-foreground uppercase tracking-widest text-xs"
@@ -52,7 +54,7 @@ export function Newsletter() {
               type="submit"
               className="h-12 sm:h-14 rounded-none bg-primary-foreground text-primary hover:bg-primary-foreground/90 uppercase tracking-widest text-xs font-bold px-6 sm:px-8 shrink-0"
             >
-              S'inscrire
+              {t("newsletter.subscribe")}
             </Button>
           </form>
         </motion.div>

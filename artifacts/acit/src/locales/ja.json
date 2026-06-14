@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "men": "メンズ",
+    "women": "ウィメンズ",
+    "kids": "キッズ",
+    "collections": "コレクション",
+    "lookbook": "ルックブック",
+    "cart": "カート"
+  },
+  "hero": {
+    "tagline": "夏は心の持ちよう",
+    "madeInFrance": "Made in France",
+    "discover": "見る",
+    "history": "ブランドストーリー",
+    "scroll": "スクロール"
+  },
+  "collection": {
+    "chapter": "チャプター I",
+    "title": "コレクション",
+    "comingSoon": "近日公開",
+    "comingSoonTitle": "近日公開",
+    "comingSoonDesc": "コレクションは今夏登場。",
+    "seeProduct": "商品を見る"
+  },
+  "lifestyle": {
+    "brand": "ブランド",
+    "title": "地中海の\nエッセンス",
+    "description": "Maison Sud はただのファッションブランドではありません。若さへの讃歌、夜が長く続く瞬間、足の下の温かい砂、そしてフレンチリビエラの気取らないエレガンスを体現しています。すべての瞬間を全力で生きる人のために作られました。",
+    "statDelivery": "配送",
+    "statVibes": "サマーバイブス",
+    "statMadeIn": "フランス製"
+  },
+  "story": {
+    "chapter": "起源",
+    "title": "私たちの\nストーリー",
+    "p0": "すべては二人のティーンエイジャーから始まりました。年齢には不釣り合いな夢と、フランス南部への執着。",
+    "p1": "お金も、コネも、場所もありませんでした。あったのはただ一つのビジョン——本当に若者に語りかけるブランドを作ること。私たちの世代を理解しようとする大人が作るブランドではなく、その内側から生まれたブランド。",
+    "p2": "夏、私たちはサン・トロペ、モナコ、地中海を眺めながら——自由と太陽と美しい生活の世界——その感覚、その心の持ちようが、着る服に宿るべきだと語り合いました。",
+    "p3": "オフィスではなく、会議室でもなく。大人になるのを待つことを拒んだ二人の子どもたちの頭の中で。",
+    "p4": "今日、私たちが作るすべてのアイテムがその情熱を宿しています。夏を心の持ちようとして。コート・ダジュールをインスピレーションとして。若さを力として。",
+    "closing": "Maison Sud は、待たない人たちのために。",
+    "founded": "2025年設立"
+  },
+  "newsletter": {
+    "vipAccess": "VIPアクセス",
+    "joinClub": "クラブに参加",
+    "description": "限定エディションやコート・ダジュールでの限定イベントへの先行アクセスのため、ぜひご登録ください。",
+    "emailPlaceholder": "メールアドレス",
+    "subscribe": "登録",
+    "toastTitle": "Maison Sud クラブへようこそ",
+    "toastDesc": "VIPリストに登録されました。"
+  },
+  "cart": {
+    "title": "カート",
+    "empty": "カートは空です",
+    "total": "合計",
+    "checkout": "注文する"
+  },
+  "footer": {
+    "brandSection": "ブランド",
+    "ourHistory": "ブランドストーリー",
+    "manifesto": "マニフェスト",
+    "stores": "店舗",
+    "careers": "採用",
+    "information": "インフォメーション",
+    "shipping": "配送・返品",
+    "faq": "よくある質問",
+    "legal": "法的情報",
+    "contact": "お問い合わせ",
+    "rights": "全著作権所有。",
+    "privacy": "プライバシー",
+    "terms": "利用規約"
+  },
+  "product": {
+    "back": "コレクションに戻る",
+    "size": "サイズ",
+    "addToCart": "カートに入れる",
+    "added": "カートに追加しました",
+    "buyNow": "今すぐ購入",
+    "redirecting": "リダイレクト中…",
+    "details": "商品詳細",
+    "shipping": "配送",
+    "shippingDays": "3〜5日",
+    "returns": "返品",
+    "returnsDays": "30日間無料",
+    "origin": "原産地",
+    "selectSizeTitle": "サイズを選択",
+    "selectSizeDesc": "カートに入れる前にサイズをお選びください。",
+    "selectSizeBuyDesc": "ご注文の前にサイズをお選びください。",
+    "notFound": "商品が見つかりません",
+    "backHome": "ホームに戻る",
+    "addedTitle": "{{name}} を追加しました",
+    "addedSize": "サイズ：{{size}}",
+    "paymentError": "支払いエラー",
+    "paymentErrorDesc": "支払いページに進めません。",
+    "error": "エラー"
+  }
+}

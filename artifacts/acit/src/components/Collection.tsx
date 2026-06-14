@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLocation } from "wouter";
 import { products } from "@/data/products";
+import { useTranslation } from "react-i18next";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -15,14 +16,15 @@ const itemVariants = {
 
 export function Collection() {
   const [, setLocation] = useLocation();
+  const { t } = useTranslation();
 
   return (
     <section id="collection" className="py-16 sm:py-28 px-4 sm:px-6 bg-background border-t border-border/10">
       <div className="container mx-auto max-w-7xl">
         <div className="flex items-end justify-between mb-10 sm:mb-14">
           <div>
-            <p className="text-xs text-primary font-bold uppercase tracking-[0.3em] mb-2 sm:mb-3">Chapitre I</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wider">La Collection</h2>
+            <p className="text-xs text-primary font-bold uppercase tracking-[0.3em] mb-2 sm:mb-3">{t("collection.chapter")}</p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold uppercase tracking-wider">{t("collection.title")}</h2>
           </div>
         </div>
 
@@ -34,9 +36,9 @@ export function Collection() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="py-24 sm:py-32 flex flex-col items-center gap-4 border border-border/10"
           >
-            <p className="text-xs text-primary font-bold uppercase tracking-[0.4em]">Bientôt disponible</p>
-            <p className="text-3xl sm:text-4xl font-display font-bold uppercase tracking-wider text-foreground/20">Prochainement</p>
-            <p className="text-sm text-muted-foreground uppercase tracking-widest mt-2">La collection arrive cet été.</p>
+            <p className="text-xs text-primary font-bold uppercase tracking-[0.4em]">{t("collection.comingSoon")}</p>
+            <p className="text-3xl sm:text-4xl font-display font-bold uppercase tracking-wider text-foreground/20">{t("collection.comingSoonTitle")}</p>
+            <p className="text-sm text-muted-foreground uppercase tracking-widest mt-2">{t("collection.comingSoonDesc")}</p>
           </motion.div>
         ) : (
           <motion.div
@@ -72,7 +74,7 @@ export function Collection() {
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex items-end p-4 sm:p-6">
                     <span className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2">
-                      Voir le produit <ArrowRight className="h-3 w-3" />
+                      {t("collection.seeProduct")} <ArrowRight className="h-3 w-3" />
                     </span>
                   </div>
                 </div>

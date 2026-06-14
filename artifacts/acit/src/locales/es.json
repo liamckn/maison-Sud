@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "men": "Hombre",
+    "women": "Mujer",
+    "kids": "Niños",
+    "collections": "Colecciones",
+    "lookbook": "Lookbook",
+    "cart": "Carrito"
+  },
+  "hero": {
+    "tagline": "EL VERANO ES UN ESTADO DE ÁNIMO",
+    "madeInFrance": "Made in France",
+    "discover": "Descubrir",
+    "history": "Nuestra Historia",
+    "scroll": "Scroll"
+  },
+  "collection": {
+    "chapter": "Capítulo I",
+    "title": "La Colección",
+    "comingSoon": "Próximamente",
+    "comingSoonTitle": "Próximamente",
+    "comingSoonDesc": "La colección llega este verano.",
+    "seeProduct": "Ver producto"
+  },
+  "lifestyle": {
+    "brand": "La Marca",
+    "title": "La esencia del\nMediterráneo",
+    "description": "Maison Sud es más que una marca de ropa. Es un himno a la juventud, a las noches interminables, a la arena caliente bajo los pies y a la elegancia despreocupada de la Riviera francesa. Diseñado para quienes viven cada instante intensamente.",
+    "statDelivery": "Entrega",
+    "statVibes": "Vibraciones Veraniegas",
+    "statMadeIn": "Made in France"
+  },
+  "story": {
+    "chapter": "Orígenes",
+    "title": "Nuestra\nHistoria",
+    "p0": "Todo empezó con dos adolescentes, un sueño demasiado grande para su edad y una obsesión por el sur de Francia.",
+    "p1": "No teníamos dinero, ni contactos, ni local. Solo teníamos una visión: crear una marca que hablara de verdad a los jóvenes. No una marca hecha por adultos que intentan entender nuestra generación. Una marca nacida desde dentro.",
+    "p2": "En verano, mirábamos Saint-Tropez, Mónaco, el Mediterráneo — ese mundo de libertad, sol y buena vida — y nos decíamos que esa sensación, ese estado de ánimo, debía existir en la ropa que llevamos.",
+    "p3": "No en una oficina. No en una reunión. En la mente de dos chicos que se negaban a esperar a ser mayores para empezar a vivir.",
+    "p4": "Hoy, cada pieza que creamos lleva esa energía. El verano como estado de ánimo. La Côte d'Azur como inspiración. La juventud como fuerza.",
+    "closing": "Maison Sud es para los que no esperan.",
+    "founded": "Fundada en 2025"
+  },
+  "newsletter": {
+    "vipAccess": "Acceso VIP",
+    "joinClub": "Únete al Club",
+    "description": "Regístrate para acceder en primicia a nuestras ediciones limitadas y eventos exclusivos en la Côte d'Azur.",
+    "emailPlaceholder": "TU DIRECCIÓN DE EMAIL",
+    "subscribe": "Suscribirse",
+    "toastTitle": "Bienvenido al Club Maison Sud",
+    "toastDesc": "Ya estás en la lista VIP."
+  },
+  "cart": {
+    "title": "Carrito",
+    "empty": "Tu carrito está vacío",
+    "total": "Total",
+    "checkout": "Pagar"
+  },
+  "footer": {
+    "brandSection": "La Marca",
+    "ourHistory": "Nuestra Historia",
+    "manifesto": "Manifiesto",
+    "stores": "Tiendas",
+    "careers": "Carreras",
+    "information": "Información",
+    "shipping": "Envíos & Devoluciones",
+    "faq": "FAQ",
+    "legal": "Aviso Legal",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "product": {
+    "back": "Volver a la colección",
+    "size": "Talla",
+    "addToCart": "Añadir al carrito",
+    "added": "Añadido al carrito",
+    "buyNow": "Comprar ahora",
+    "redirecting": "Redirigiendo…",
+    "details": "Detalles del producto",
+    "shipping": "Envío",
+    "shippingDays": "3-5 días",
+    "returns": "Devoluciones",
+    "returnsDays": "30 días gratis",
+    "origin": "Origen",
+    "selectSizeTitle": "Selecciona una talla",
+    "selectSizeDesc": "Elige tu talla antes de añadir al carrito.",
+    "selectSizeBuyDesc": "Elige tu talla antes de pedir.",
+    "notFound": "Producto no encontrado",
+    "backHome": "Volver al inicio",
+    "addedTitle": "{{name}} añadido",
+    "addedSize": "Talla: {{size}}",
+    "paymentError": "Error de pago",
+    "paymentErrorDesc": "No se puede acceder al pago.",
+    "error": "Error"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "men": "Homme",
+    "women": "Femme",
+    "kids": "Enfant",
+    "collections": "Collections",
+    "lookbook": "Lookbook",
+    "cart": "Panier"
+  },
+  "hero": {
+    "tagline": "L'ÉTÉ EST UN ÉTAT D'ESPRIT",
+    "madeInFrance": "Made in France",
+    "discover": "Découvrir",
+    "history": "L'Histoire",
+    "scroll": "Scroll"
+  },
+  "collection": {
+    "chapter": "Chapitre I",
+    "title": "La Collection",
+    "comingSoon": "Bientôt disponible",
+    "comingSoonTitle": "Prochainement",
+    "comingSoonDesc": "La collection arrive cet été.",
+    "seeProduct": "Voir le produit"
+  },
+  "lifestyle": {
+    "brand": "La Marque",
+    "title": "L'essence de la\nMéditerranée",
+    "description": "𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱 est plus qu'une marque de vêtements. C'est un hymne à la jeunesse, aux soirées qui s'étirent, au sable chaud sous les pieds et à l'élégance désinvolte de la French Riviera. Conçu pour ceux qui vivent chaque instant intensément.",
+    "statDelivery": "Livraison",
+    "statVibes": "Vibes Estivales",
+    "statMadeIn": "Made in France"
+  },
+  "story": {
+    "chapter": "Origines",
+    "title": "Notre\nHistoire",
+    "p0": "Tout a commencé avec deux adolescents, un rêve trop grand pour leur âge et une obsession pour le sud de la France.",
+    "p1": "On n'avait pas d'argent, pas de connexions, pas de local. On avait juste une vision : créer une marque qui parle vraiment aux jeunes. Pas une marque faite par des adultes qui essaient de comprendre notre génération. Une marque née dedans.",
+    "p2": "L'été, on regardait Saint-Tropez, Monaco, la Méditerranée — ce monde de liberté, de soleil, de belle vie — et on se disait que ce feeling, cet état d'esprit, devait exister dans les vêtements qu'on porte.",
+    "p3": "Pas dans un bureau. Pas dans une réunion. Dans la tête de deux gamins qui refusaient d'attendre d'être grands pour commencer à vivre.",
+    "p4": "Aujourd'hui, chaque pièce qu'on crée porte cette énergie. L'été comme état d'esprit. La Côte d'Azur comme inspiration. La jeunesse comme force.",
+    "closing": "𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱, c'est pour ceux qui n'attendent pas.",
+    "founded": "Fondé en 2025"
+  },
+  "newsletter": {
+    "vipAccess": "Accès VIP",
+    "joinClub": "Rejoignez le Club",
+    "description": "Inscrivez-vous pour accéder en avant-première à nos éditions limitées et événements exclusifs sur la Côte d'Azur.",
+    "emailPlaceholder": "VOTRE ADRESSE EMAIL",
+    "subscribe": "S'inscrire",
+    "toastTitle": "Bienvenue au Club 𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱",
+    "toastDesc": "Vous êtes désormais sur la liste VIP."
+  },
+  "cart": {
+    "title": "Panier",
+    "empty": "Votre panier est vide",
+    "total": "Total",
+    "checkout": "Commander"
+  },
+  "footer": {
+    "brandSection": "La Marque",
+    "ourHistory": "Notre Histoire",
+    "manifesto": "Manifesto",
+    "stores": "Boutiques",
+    "careers": "Carrières",
+    "information": "Informations",
+    "shipping": "Livraison & Retours",
+    "faq": "FAQ",
+    "legal": "Mentions Légales",
+    "contact": "Contact",
+    "rights": "Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "terms": "Conditions"
+  },
+  "product": {
+    "back": "Retour à la collection",
+    "size": "Taille",
+    "addToCart": "Ajouter au panier",
+    "added": "Ajouté au panier",
+    "buyNow": "Commander maintenant",
+    "redirecting": "Redirection…",
+    "details": "Détails du produit",
+    "shipping": "Livraison",
+    "shippingDays": "3-5 jours",
+    "returns": "Retours",
+    "returnsDays": "30 jours offerts",
+    "origin": "Origine",
+    "selectSizeTitle": "Sélectionne une taille",
+    "selectSizeDesc": "Choisis ta taille avant d'ajouter au panier.",
+    "selectSizeBuyDesc": "Choisis ta taille avant de commander.",
+    "notFound": "Produit introuvable",
+    "backHome": "Retour à l'accueil",
+    "addedTitle": "{{name}} ajouté",
+    "addedSize": "Taille : {{size}}",
+    "paymentError": "Erreur de paiement",
+    "paymentErrorDesc": "Impossible d'accéder au paiement.",
+    "error": "Erreur"
+  }
+}
