@@ -54,15 +54,6 @@ export function Hero() {
           𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱<span className="text-primary">.</span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="text-sm sm:text-xl md:text-3xl font-light tracking-[0.15em] sm:tracking-[0.2em] text-white/60 uppercase max-w-xs sm:max-w-xl md:max-w-2xl"
-        >
-          {t("hero.tagline")}
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
