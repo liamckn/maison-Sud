@@ -15,7 +15,7 @@ export const products: Product[] = [
   {
     id: "tee-homme-maison-sud",
     name: "T-shirt homme Maison Sud",
-    price: 29.99,
+    price: 39.99,
     image: "/images/tee-flat.jpeg",
     images: [
       "/images/tee-flat.jpeg",
