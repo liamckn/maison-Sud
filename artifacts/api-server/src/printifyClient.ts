@@ -87,8 +87,15 @@ export async function createPrintifyOrder(opts: {
     },
   };
 
-  return printifyRequest(`/shops/${SHOP_ID}/orders.json`, {
+  const order = await printifyRequest(`/shops/${SHOP_ID}/orders.json`, {
     method: 'POST',
     body: JSON.stringify(payload),
   });
+
+  // Submit to production immediately so Printify starts printing and shipping
+  await printifyRequest(`/shops/${SHOP_ID}/orders/${order.id}/send_to_production.json`, {
+    method: 'POST',
+  });
+
+  return order;
 }
