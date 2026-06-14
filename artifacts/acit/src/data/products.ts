@@ -21,7 +21,6 @@ export const products: Product[] = [
       "/images/tee-flat.jpeg",
       "/images/tee-front.jpeg",
       "/images/tee-back.jpeg",
-      "/images/tee-side.jpeg",
       "/images/tee-back2.jpeg",
     ],
     imageFit: "contain",
