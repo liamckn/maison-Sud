@@ -22,6 +22,7 @@ export const products: Product[] = [
       "/images/tee-front.jpeg",
       "/images/tee-back.jpeg",
       "/images/tee-back2.jpeg",
+      "/images/tee-back3.jpeg",
     ],
     imageFit: "contain",
     badge: "NOUVEAU",
