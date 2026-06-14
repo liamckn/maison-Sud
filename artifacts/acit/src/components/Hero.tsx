@@ -20,7 +20,8 @@ export function Hero() {
         <img
           src={heroImg}
           alt="Côte d'Azur"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: "50% 85%" }}
         />
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/20" />
