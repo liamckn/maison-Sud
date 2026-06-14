@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@assets/WhatsApp_Image_2026-06-14_at_22.07.39_1781467688181.jpeg";
+import heroImg from "@assets/WhatsApp_Image_2026-06-14_at_22.17.44_1781468321927.jpeg";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,8 +20,7 @@ export function Hero() {
         <img
           src={heroImg}
           alt="Côte d'Azur"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: "50% 85%" }}
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/20" />
