@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@assets/WhatsApp_Image_2026-06-14_at_22.01.38_1781467317964.jpeg";
+import heroImg from "@assets/WhatsApp_Image_2026-06-14_at_22.04.40_1781467517120.jpeg";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,16 +15,15 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
-    <div ref={ref} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-background">
+    <div ref={ref} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-black">
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <img
           src={heroImg}
           alt="Côte d'Azur"
-          className="w-full h-full object-cover scale-105 blur-sm"
-          style={{ objectPosition: "50% 45%" }}
+          className="w-full h-full object-contain"
         />
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/25" />
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </motion.div>
 
       <motion.div
