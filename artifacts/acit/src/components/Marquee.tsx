@@ -5,6 +5,7 @@ export function Marquee() {
     "MONACO",
     "CÔTE D'AZUR",
     "FRENCH LUXURY",
+    "MADE IN FRANCE",
     "STREETWEAR",
     "SUMMER CLUB",
   ];

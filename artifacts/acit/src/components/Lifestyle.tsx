@@ -4,7 +4,7 @@ const stats = [
   { value: "100%", label: "Made with Love" },
   { value: "3-5J", label: "Livraison" },
   { value: "∞", label: "Vibes Estivales" },
-  { value: "FR", label: "Origine France" },
+  { value: "🇫🇷", label: "Made in France" },
 ];
 
 export function Lifestyle() {

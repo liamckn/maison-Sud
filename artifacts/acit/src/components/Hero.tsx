@@ -64,6 +64,17 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-3 mt-5 sm:mt-7"
+        >
+          <span className="w-6 h-px bg-white/30" />
+          <span className="text-[10px] sm:text-xs font-bold uppercase tracking-[0.3em] text-white/50">Made in France</span>
+          <span className="w-6 h-px bg-white/30" />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 mt-10 sm:mt-16 w-full sm:w-auto px-4 sm:px-0"
         >
