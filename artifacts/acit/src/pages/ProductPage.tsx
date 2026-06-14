@@ -237,7 +237,7 @@ function ProductPageInner() {
               <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/10 grid grid-cols-3 gap-3 sm:gap-4 text-center">
                 <div>
                   <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Livraison</p>
-                  <p className="text-[10px] sm:text-xs text-muted-foreground">24h express</p>
+                  <p className="text-[10px] sm:text-xs text-muted-foreground">3-5 jours</p>
                 </div>
                 <div>
                   <p className="text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1">Retours</p>

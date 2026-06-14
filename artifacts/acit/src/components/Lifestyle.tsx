@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const stats = [
   { value: "100%", label: "Made with Love" },
-  { value: "24H", label: "Livraison Express" },
+  { value: "3-5J", label: "Livraison" },
   { value: "∞", label: "Vibes Estivales" },
   { value: "FR", label: "Origine France" },
 ];
