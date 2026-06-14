@@ -25,14 +25,14 @@ export function Navbar() {
   };
 
   const leftLinks = [
-    { label: "Collection", id: "collection" },
-    { label: "La Marque", id: "lamarque" },
-    { label: "Exclusif", id: "exclusif" },
+    { label: "Homme", id: "collection" },
+    { label: "Femme", id: "collection" },
+    { label: "Enfant", id: "collection" },
   ];
 
   const rightLinks = [
+    { label: "Collections", id: "collection" },
     { label: "Lookbook", id: "lifestyle" },
-    { label: "Histoire", id: "lamarque" },
   ];
 
   return (
