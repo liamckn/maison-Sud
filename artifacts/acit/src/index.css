@@ -59,8 +59,8 @@
 
   --font-sans: 'Cormorant Garamond', serif;
   --font-display: 'Cormorant Garamond', serif;
-  --font-serif: var(--app-font-serif);
-  --font-mono: var(--app-font-mono);
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-mono: 'Cormorant Garamond', serif;
 
   --text-xs: 0.75rem;
   --text-xs--line-height: calc(1 / 0.75);
