@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import hommeImg from "@assets/WhatsApp_Image_2026-06-15_at_20.43.00_(1)_1781549004006.jpeg";
-import femmeImg from "@assets/WhatsApp_Image_2026-06-15_at_20.43.00_1781549004007.jpeg";
+import femmeImg from "@assets/WhatsApp_Image_2026-06-15_at_20.47.43_1781549297924.jpeg";
 import { useTranslation } from "react-i18next";
 
 export function Hero() {
