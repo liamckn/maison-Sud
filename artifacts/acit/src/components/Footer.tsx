@@ -1,8 +1,12 @@
 import { Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "wouter";
 
 export function Footer() {
   const { t } = useTranslation();
+  const [, setLocation] = useLocation();
+
+  const go = (path: string) => setLocation(path);
 
   return (
     <footer className="bg-background border-t border-border/10 pt-16 sm:pt-24 pb-10 sm:pb-12 px-4 sm:px-6">
@@ -34,20 +38,20 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6">{t("footer.brandSection")}</h4>
             <ul className="space-y-3 sm:space-y-4">
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.ourHistory")}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.manifesto")}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.stores")}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.careers")}</a></li>
+              <li><button onClick={() => go("/histoire")} className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.ourHistory")}</button></li>
+              <li><button onClick={() => go("/manifesto")} className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.manifesto")}</button></li>
+              <li><button onClick={() => go("/boutiques")} className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.stores")}</button></li>
+              <li><button onClick={() => go("/carrieres")} className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.careers")}</button></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold text-xs sm:text-sm uppercase tracking-widest mb-4 sm:mb-6">{t("footer.information")}</h4>
             <ul className="space-y-3 sm:space-y-4">
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.shipping")}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.faq")}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.legal")}</a></li>
-              <li><a href="mailto:contact.houseofhouse@gmail.com" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.contact")}</a></li>
+              <li><button onClick={() => go("/livraison")} className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.shipping")}</button></li>
+              <li><button onClick={() => go("/faq")} className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.faq")}</button></li>
+              <li><button onClick={() => go("/mentions-legales")} className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.legal")}</button></li>
+              <li><button onClick={() => go("/contact")} className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.contact")}</button></li>
             </ul>
           </div>
         </div>
@@ -57,8 +61,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} 𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱. {t("footer.rights")}
           </p>
           <div className="flex gap-4 sm:gap-6 text-xs text-muted-foreground uppercase tracking-wider">
-            <a href="#" className="hover:text-primary transition-colors">{t("footer.privacy")}</a>
-            <a href="#" className="hover:text-primary transition-colors">{t("footer.terms")}</a>
+            <button onClick={() => go("/confidentialite")} className="hover:text-primary transition-colors">{t("footer.privacy")}</button>
+            <button onClick={() => go("/conditions")} className="hover:text-primary transition-colors">{t("footer.terms")}</button>
           </div>
         </div>
       </div>
