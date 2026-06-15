@@ -34,6 +34,58 @@ const HOMME_MENU = [
   { label: "Accessoires", path: "/homme/accessoires" },
 ];
 
+function MobileSection({
+  label,
+  items,
+  onLabelClick,
+  onItemClick,
+}: {
+  label: string;
+  items: { label: string; path: string }[];
+  onLabelClick: () => void;
+  onItemClick: (path: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border-b border-black/6">
+      <div className="flex items-center justify-between py-3.5">
+        <button
+          onClick={onLabelClick}
+          className="text-left text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors"
+        >
+          {label}
+        </button>
+        <button onClick={() => setOpen((v) => !v)} className="p-1 text-muted-foreground">
+          <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+        </button>
+      </div>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <div className="flex flex-col pb-2 pl-4">
+              {items.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => onItemClick(item.path)}
+                  className="text-left text-xs font-medium uppercase tracking-widest py-2.5 text-muted-foreground hover:text-primary transition-colors border-b border-black/4 last:border-0"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 function NavDropdown({
   label,
   items,
@@ -316,19 +368,32 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-[49px] left-0 w-full z-30 bg-white border-b border-black/10 md:hidden"
+            className="fixed top-[49px] left-0 w-full z-30 bg-white border-b border-black/10 md:hidden overflow-y-auto max-h-[80vh]"
           >
-            <div className="flex flex-col px-6 py-4">
+            <div className="flex flex-col px-6 py-2">
+              {/* Femme section */}
+              <MobileSection
+                label={t("nav.women")}
+                items={FEMME_MENU}
+                onLabelClick={() => { setMenuOpen(false); setLocation("/femme"); }}
+                onItemClick={(path) => { setMenuOpen(false); setLocation(path); }}
+              />
+              {/* Homme section */}
+              <MobileSection
+                label={t("nav.men")}
+                items={HOMME_MENU}
+                onLabelClick={() => { setMenuOpen(false); setLocation("/homme"); }}
+                onItemClick={(path) => { setMenuOpen(false); setLocation(path); }}
+              />
+              {/* Simple links */}
               {[
-                { label: t("nav.women"), action: () => scrollTo("collection") },
-                { label: t("nav.men"), action: () => scrollTo("collection") },
-                { label: t("nav.kids"), action: () => scrollTo("collection") },
-                { label: t("nav.collections"), action: () => setLocation("/collections") },
-                { label: t("nav.lookbook"), action: () => setLocation("/lookbook") },
+                { label: t("nav.kids"), action: () => { setMenuOpen(false); setLocation("/enfant"); } },
+                { label: t("nav.collections"), action: () => { setMenuOpen(false); setLocation("/collections"); } },
+                { label: t("nav.lookbook"), action: () => { setMenuOpen(false); setLocation("/lookbook"); } },
               ].map((link, i) => (
                 <button
                   key={i}
-                  onClick={() => { setMenuOpen(false); link.action(); }}
+                  onClick={link.action}
                   className="text-left text-sm font-medium uppercase tracking-widest py-3.5 border-b border-black/6 hover:text-primary transition-colors last:border-0"
                 >
                   {link.label}
