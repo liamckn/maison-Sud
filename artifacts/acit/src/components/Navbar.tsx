@@ -35,42 +35,44 @@ const HOMME_MENU = [
   "Footwear",
 ];
 
-function NavDropdown({ label, items }: { label: string; items: string[] }) {
-  const [open, setOpen] = useState(false);
+function NavDropdown({
+  label,
+  items,
+  isOpen,
+  onOpen,
+  onClose,
+}: {
+  label: string;
+  items: string[];
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
+}) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    };
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
-  }, []);
-
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative" onMouseLeave={onClose}>
       <button
-        onClick={() => setOpen((v) => !v)}
-        onMouseEnter={() => setOpen(true)}
+        onMouseEnter={onOpen}
+        onClick={() => (isOpen ? onClose() : onOpen())}
         className="flex items-center gap-0.5 text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
       >
         {label}
-        <ChevronDown className={`h-3 w-3 mt-px transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+        <ChevronDown className={`h-3 w-3 mt-px transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
       </button>
       <AnimatePresence>
-        {open && (
+        {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15 }}
-            onMouseLeave={() => setOpen(false)}
-            className="absolute left-0 top-full mt-2 bg-white border border-black/10 shadow-lg py-2 min-w-[180px] z-50"
+            className="absolute left-0 top-full mt-2 bg-white border border-black/10 shadow-lg py-2 min-w-[190px] z-50"
           >
             {items.map((item) => (
               <button
                 key={item}
-                onClick={() => setOpen(false)}
+                onClick={onClose}
                 className="flex items-center justify-between w-full text-left px-4 py-2.5 text-xs font-medium tracking-wider text-foreground hover:text-primary transition-colors group"
               >
                 <span>{item}</span>
@@ -89,6 +91,7 @@ function NavDropdown({ label, items }: { label: string; items: string[] }) {
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const langRef = useRef<HTMLDivElement>(null);
   const { itemCount, setIsCartOpen } = useCart();
   const { t, i18n } = useTranslation();
@@ -135,9 +138,21 @@ export function Navbar() {
         <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-12">
 
           {/* Left: Femme + Homme dropdowns + Enfant */}
-          <div className="hidden md:flex items-center gap-12 flex-1">
-            <NavDropdown label={t("nav.women")} items={FEMME_MENU} />
-            <NavDropdown label={t("nav.men")} items={HOMME_MENU} />
+          <div className="hidden md:flex items-center flex-1" style={{ gap: "2.5rem" }}>
+            <NavDropdown
+              label={t("nav.women")}
+              items={FEMME_MENU}
+              isOpen={activeDropdown === "femme"}
+              onOpen={() => setActiveDropdown("femme")}
+              onClose={() => setActiveDropdown(null)}
+            />
+            <NavDropdown
+              label={t("nav.men")}
+              items={HOMME_MENU}
+              isOpen={activeDropdown === "homme"}
+              onOpen={() => setActiveDropdown("homme")}
+              onClose={() => setActiveDropdown(null)}
+            />
             <button
               onClick={() => scrollTo("collection")}
               className="text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
