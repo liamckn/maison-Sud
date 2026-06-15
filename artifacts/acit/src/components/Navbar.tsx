@@ -3,6 +3,7 @@ import { ShoppingBag, Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "wouter";
 
 const LANGUAGES = [
   { code: "fr", label: "FR" },
@@ -119,12 +120,18 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  const [location, setLocation] = useLocation();
+
   const scrollTo = (id: string) => {
     setMenuOpen(false);
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 300);
+    if (location !== "/") {
+      setLocation("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 1100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const rightLinks = [
