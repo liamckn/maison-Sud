@@ -135,7 +135,7 @@ export function Navbar() {
         <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-12">
 
           {/* Left: Femme + Homme dropdowns + Enfant */}
-          <div className="hidden md:flex items-center gap-7 flex-1">
+          <div className="hidden md:flex items-center gap-12 flex-1">
             <NavDropdown label={t("nav.women")} items={FEMME_MENU} />
             <NavDropdown label={t("nav.men")} items={HOMME_MENU} />
             <button
