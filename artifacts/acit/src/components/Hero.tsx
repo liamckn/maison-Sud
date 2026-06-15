@@ -1,127 +1,108 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import hommeImg from "@assets/WhatsApp_Image_2026-06-15_at_20.43.00_(1)_1781549004006.jpeg";
 import femmeImg from "@assets/WhatsApp_Image_2026-06-15_at_20.47.43_1781549297924.jpeg";
 import { useTranslation } from "react-i18next";
 
 export function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
-    <div ref={ref} className="relative h-[100dvh] w-full overflow-hidden flex items-center justify-center bg-background">
+    <div className="relative h-[100dvh] w-full flex bg-white overflow-hidden">
 
-      {/* Split photos */}
-      <div className="absolute inset-0 flex">
-        {/* Homme — left */}
-        <motion.div style={{ y }} className="relative w-1/2 h-full overflow-hidden">
-          <img
-            src={hommeImg}
-            alt="Homme Maison Sud"
-            className="w-full h-full object-cover object-top scale-105"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
-        </motion.div>
-
-        {/* Femme — right */}
-        <motion.div style={{ y }} className="relative w-1/2 h-full overflow-hidden">
-          <img
-            src={femmeImg}
-            alt="Femme Maison Sud"
-            className="w-full h-full object-cover object-top scale-105"
-          />
-          <div className="absolute inset-0 bg-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-l from-black/20 to-transparent" />
-        </motion.div>
-      </div>
-
-      {/* Thin center divider */}
-      <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-white/20 z-10" />
-
-      {/* Center text overlay */}
+      {/* Left photo — Homme */}
       <motion.div
-        style={{ opacity }}
-        className="relative z-20 flex flex-col items-center text-center px-4 w-full max-w-4xl"
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="w-[28%] sm:w-[30%] h-full flex-shrink-0 overflow-hidden"
       >
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+        <img
+          src={hommeImg}
+          alt="Homme Maison Sud"
+          className="w-full h-full object-cover object-top"
+        />
+      </motion.div>
+
+      {/* Center — brand content */}
+      <div className="flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-8 py-12 bg-white relative z-10">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-xs tracking-[0.3em] text-white/70 mb-6 sm:mb-8"
+          transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-4 sm:mb-6"
         >
-          <span>SAINT-TROPEZ</span>
-          <span className="w-1 h-1 bg-primary rounded-full" />
-          <span>MONACO</span>
-          <span className="w-1 h-1 bg-primary rounded-full" />
-          <span>CÔTE D'AZUR</span>
-        </motion.div>
+          SAINT-TROPEZ · MONACO · CÔTE D'AZUR
+        </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[4rem] sm:text-7xl md:text-8xl lg:text-[10rem] font-display font-bold text-white tracking-tight leading-none mb-4 sm:mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className="font-display font-bold text-foreground leading-none tracking-tight text-[2.8rem] sm:text-6xl md:text-7xl lg:text-8xl mb-3 sm:mb-4"
         >
           Maison Sud
         </motion.h1>
 
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="flex items-center gap-3 mt-2 sm:mt-4"
+          transition={{ duration: 1, delay: 0.65 }}
+          className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-muted-foreground mb-6 sm:mb-8 italic font-light"
         >
-          <span className="w-8 h-px bg-white/30" />
-          <span className="text-[10px] uppercase tracking-[0.4em] text-white/50">{t("hero.madeInFrance")}</span>
-          <span className="w-8 h-px bg-white/30" />
-        </motion.div>
+          L'Été Est Un État d'Esprit
+        </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.75 }}
+          className="w-12 h-px bg-primary mb-8 sm:mb-10"
+        />
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 mt-10 sm:mt-14 w-full sm:w-auto px-4 sm:px-0"
+          transition={{ duration: 0.9, delay: 0.85 }}
+          className="text-[11px] sm:text-sm text-muted-foreground uppercase tracking-widest mb-8 sm:mb-10 font-light"
+        >
+          {t("hero.madeInFrance")}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0"
         >
           <Button
-            className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-12 sm:h-14 px-8 sm:px-12 text-xs sm:text-sm uppercase tracking-widest font-bold w-full sm:w-auto"
+            className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-11 sm:h-13 px-6 sm:px-10 text-[10px] sm:text-xs uppercase tracking-[0.25em] font-bold w-full sm:w-auto"
             onClick={() => document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" })}
           >
             {t("hero.discover")}
           </Button>
           <Button
             variant="outline"
-            className="rounded-none border-white/40 text-white hover:bg-white/10 hover:text-white h-12 sm:h-14 px-8 sm:px-12 text-xs sm:text-sm uppercase tracking-widest font-bold w-full sm:w-auto"
+            className="rounded-none border-foreground/20 text-foreground hover:bg-foreground/5 h-11 sm:h-13 px-6 sm:px-10 text-[10px] sm:text-xs uppercase tracking-[0.25em] font-bold w-full sm:w-auto"
             onClick={() => document.getElementById("lamarque")?.scrollIntoView({ behavior: "smooth" })}
           >
             {t("hero.history")}
           </Button>
         </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Scroll indicator */}
+      {/* Right photo — Femme */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3 text-white/50"
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="w-[28%] sm:w-[30%] h-full flex-shrink-0 overflow-hidden"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em]">{t("hero.scroll")}</span>
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-        >
-          <ArrowDown className="h-4 w-4" />
-        </motion.div>
+        <img
+          src={femmeImg}
+          alt="Femme Maison Sud"
+          className="w-full h-full object-cover object-top"
+        />
       </motion.div>
     </div>
   );
