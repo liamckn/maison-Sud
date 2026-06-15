@@ -29,7 +29,7 @@ const FEMME_MENU = [
 
 const HOMME_MENU = [
   "T-shirt",
-  "Maillot",
+  "Maillot de bain",
   "Short",
   "Pantalon",
 ];
