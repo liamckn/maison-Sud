@@ -50,11 +50,20 @@ function NavDropdown({
   onLabelClick?: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMouseEnter = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    onOpen();
+  };
+
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => onClose(), 120);
+  };
 
   return (
-    <div ref={ref} className="relative" onMouseLeave={onClose}>
+    <div ref={ref} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <button
-        onMouseEnter={onOpen}
         onClick={() => onLabelClick?.()}
         className="flex items-center gap-0.5 text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
       >
