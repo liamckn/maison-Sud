@@ -40,12 +40,14 @@ function NavDropdown({
   isOpen,
   onOpen,
   onClose,
+  onLabelClick,
 }: {
   label: string;
   items: string[];
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
+  onLabelClick?: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -53,7 +55,7 @@ function NavDropdown({
     <div ref={ref} className="relative" onMouseLeave={onClose}>
       <button
         onMouseEnter={onOpen}
-        onClick={() => (isOpen ? onClose() : onOpen())}
+        onClick={() => onLabelClick?.()}
         className="flex items-center gap-0.5 text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
       >
         {label}
@@ -150,6 +152,7 @@ export function Navbar() {
               isOpen={activeDropdown === "femme"}
               onOpen={() => setActiveDropdown("femme")}
               onClose={() => setActiveDropdown(null)}
+              onLabelClick={() => setLocation("/femme")}
             />
             <NavDropdown
               label={t("nav.men")}
@@ -157,9 +160,10 @@ export function Navbar() {
               isOpen={activeDropdown === "homme"}
               onOpen={() => setActiveDropdown("homme")}
               onClose={() => setActiveDropdown(null)}
+              onLabelClick={() => setLocation("/homme")}
             />
             <button
-              onClick={() => scrollTo("collection")}
+              onClick={() => setLocation("/enfant")}
               className="text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
             >
               {t("nav.kids")}

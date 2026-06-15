@@ -19,6 +19,9 @@ import { Confidentialite } from "@/pages/Confidentialite";
 import { Conditions } from "@/pages/Conditions";
 import { Collections } from "@/pages/Collections";
 import { Lookbook } from "@/pages/Lookbook";
+import { Femme } from "@/pages/Femme";
+import { Homme } from "@/pages/Homme";
+import { Enfant } from "@/pages/Enfant";
 
 const queryClient = new QueryClient();
 
@@ -47,6 +50,9 @@ function Router() {
       <Route path="/confidentialite" component={Confidentialite} />
       <Route path="/conditions" component={Conditions} />
       <Route path="/collections" component={Collections} />
+      <Route path="/femme" component={Femme} />
+      <Route path="/homme" component={Homme} />
+      <Route path="/enfant" component={Enfant} />
       <Route path="/lookbook" component={Lookbook} />
       <Route component={NotFound} />
     </Switch>
