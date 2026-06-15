@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@assets/R_1781470124047.jpg";
+import heroImg from "@assets/WhatsApp_Image_2026-06-14_at_22.09.49_1781548512900.jpeg";
 import { useTranslation } from "react-i18next";
 
 export function Hero() {
