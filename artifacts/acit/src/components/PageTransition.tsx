@@ -1,12 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function PageTransition() {
   const [location] = useLocation();
   const [visible, setVisible] = useState(false);
+  const isFirst = useRef(true);
 
   useEffect(() => {
+    if (isFirst.current) {
+      isFirst.current = false;
+      return;
+    }
     setVisible(true);
     const t = setTimeout(() => setVisible(false), 900);
     return () => clearTimeout(t);

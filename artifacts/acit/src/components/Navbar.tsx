@@ -17,8 +17,76 @@ const LANGUAGES = [
   { code: "ar", label: "AR" },
 ];
 
+const FEMME_MENU = [
+  "All",
+  "New Arrivals",
+  "Clothing",
+  "Fleece",
+  "Active & Tenniswear",
+  "Accessories",
+  "Footwear",
+];
+
+const HOMME_MENU = [
+  "All",
+  "Clothing",
+  "Accessories",
+  "Fleece",
+  "Footwear",
+];
+
+function NavDropdown({ label, items }: { label: string; items: string[] }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        onMouseEnter={() => setOpen(true)}
+        className="flex items-center gap-0.5 text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
+      >
+        {label}
+        <ChevronDown className={`h-3 w-3 mt-px transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+      </button>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15 }}
+            onMouseLeave={() => setOpen(false)}
+            className="absolute left-0 top-full mt-2 bg-white border border-black/10 shadow-lg py-2 min-w-[180px] z-50"
+          >
+            {items.map((item) => (
+              <button
+                key={item}
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-between w-full text-left px-4 py-2.5 text-xs font-medium tracking-wider text-foreground hover:text-primary transition-colors group"
+              >
+                <span>{item}</span>
+                {["Clothing", "Fleece", "Active & Tenniswear", "Accessories", "Footwear"].includes(item) && (
+                  <ChevronDown className="h-3 w-3 -rotate-90 text-muted-foreground/50 group-hover:text-primary transition-colors" />
+                )}
+              </button>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
@@ -39,12 +107,6 @@ export function Navbar() {
   }, [i18n.language]);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       if (langRef.current && !langRef.current.contains(e.target as Node)) {
         setLangOpen(false);
@@ -62,12 +124,6 @@ export function Navbar() {
     }, 300);
   };
 
-  const leftLinks = [
-    { label: t("nav.men"), id: "collection" },
-    { label: t("nav.women"), id: "collection" },
-    { label: t("nav.kids"), id: "collection" },
-  ];
-
   const rightLinks = [
     { label: t("nav.collections"), id: "collection" },
     { label: t("nav.lookbook"), id: "lifestyle" },
@@ -78,18 +134,19 @@ export function Navbar() {
       <nav className="fixed top-0 left-0 w-full z-40 bg-white border-b border-black/10 transition-all duration-300">
         <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-12">
 
+          {/* Left: Femme + Homme dropdowns + Enfant */}
           <div className="hidden md:flex items-center gap-7 flex-1">
-            {leftLinks.map((link, i) => (
-              <button
-                key={i}
-                onClick={() => scrollTo(link.id)}
-                className="text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
-              >
-                {link.label}
-              </button>
-            ))}
+            <NavDropdown label={t("nav.women")} items={FEMME_MENU} />
+            <NavDropdown label={t("nav.men")} items={HOMME_MENU} />
+            <button
+              onClick={() => scrollTo("collection")}
+              className="text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
+            >
+              {t("nav.kids")}
+            </button>
           </div>
 
+          {/* Mobile hamburger */}
           <button
             className="md:hidden text-foreground p-1"
             onClick={() => setMenuOpen((v) => !v)}
@@ -98,12 +155,14 @@ export function Navbar() {
             {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
 
+          {/* Center: brand */}
           <div className="absolute left-1/2 -translate-x-1/2">
             <span className="text-xl sm:text-2xl font-display font-bold tracking-[0.25em] uppercase text-foreground select-none">
               Maison Sud
             </span>
           </div>
 
+          {/* Right: Collections + Lookbook + Lang + Cart */}
           <div className="hidden md:flex items-center gap-5 flex-1 justify-end">
             {rightLinks.map((link, i) => (
               <button
@@ -115,6 +174,7 @@ export function Navbar() {
               </button>
             ))}
 
+            {/* Language selector */}
             <div ref={langRef} className="relative">
               <button
                 onClick={() => setLangOpen((v) => !v)}
@@ -150,6 +210,7 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
+            {/* Cart */}
             <button
               onClick={() => setIsCartOpen(true)}
               className="relative ml-1 hover:text-primary transition-colors"
@@ -165,6 +226,7 @@ export function Navbar() {
             </button>
           </div>
 
+          {/* Mobile right: lang + cart */}
           <div className="md:hidden flex items-center gap-3">
             <div ref={langRef} className="relative">
               <button
@@ -215,6 +277,7 @@ export function Navbar() {
         </div>
       </nav>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -225,7 +288,13 @@ export function Navbar() {
             className="fixed top-[49px] left-0 w-full z-30 bg-white border-b border-black/10 md:hidden"
           >
             <div className="flex flex-col px-6 py-4">
-              {[...leftLinks, ...rightLinks].map((link, i) => (
+              {[
+                { label: t("nav.women"), id: "collection" },
+                { label: t("nav.men"), id: "collection" },
+                { label: t("nav.kids"), id: "collection" },
+                { label: t("nav.collections"), id: "collection" },
+                { label: t("nav.lookbook"), id: "lifestyle" },
+              ].map((link, i) => (
                 <button
                   key={i}
                   onClick={() => scrollTo(link.id)}
