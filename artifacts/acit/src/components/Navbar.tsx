@@ -19,21 +19,21 @@ const LANGUAGES = [
 ];
 
 const FEMME_MENU = [
-  "All",
-  "New Arrivals",
-  "Clothing",
-  "Fleece",
-  "Active & Tenniswear",
-  "Accessories",
-  "Footwear",
+  "Tout",
+  "Nouveautés",
+  "Vêtements",
+  "Polaires",
+  "Sport & Tennis",
+  "Accessoires",
+  "Chaussures",
 ];
 
 const HOMME_MENU = [
-  "All",
-  "Clothing",
-  "Accessories",
-  "Fleece",
-  "Footwear",
+  "Tout",
+  "Vêtements",
+  "Accessoires",
+  "Polaires",
+  "Chaussures",
 ];
 
 function NavDropdown({
@@ -77,7 +77,7 @@ function NavDropdown({
                 className="flex items-center justify-between w-full text-left px-4 py-2.5 text-xs font-medium tracking-wider text-foreground hover:text-primary transition-colors group"
               >
                 <span>{item}</span>
-                {["Clothing", "Fleece", "Active & Tenniswear", "Accessories", "Footwear"].includes(item) && (
+                {["Vêtements", "Polaires", "Sport & Tennis", "Accessoires", "Chaussures"].includes(item) && (
                   <ChevronDown className="h-3 w-3 -rotate-90 text-muted-foreground/50 group-hover:text-primary transition-colors" />
                 )}
               </button>
