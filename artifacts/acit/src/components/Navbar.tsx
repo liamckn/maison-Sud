@@ -135,8 +135,8 @@ export function Navbar() {
   };
 
   const rightLinks = [
-    { label: t("nav.collections"), id: "collection" },
-    { label: t("nav.lookbook"), id: "lifestyle" },
+    { label: t("nav.collections"), path: "/collections" },
+    { label: t("nav.lookbook"), path: "/lookbook" },
   ];
 
   return (
@@ -189,7 +189,7 @@ export function Navbar() {
             {rightLinks.map((link, i) => (
               <button
                 key={i}
-                onClick={() => scrollTo(link.id)}
+                onClick={() => setLocation(link.path)}
                 className="text-xs font-medium uppercase tracking-widest text-foreground hover:text-primary transition-colors whitespace-nowrap"
               >
                 {link.label}
@@ -311,15 +311,15 @@ export function Navbar() {
           >
             <div className="flex flex-col px-6 py-4">
               {[
-                { label: t("nav.women"), id: "collection" },
-                { label: t("nav.men"), id: "collection" },
-                { label: t("nav.kids"), id: "collection" },
-                { label: t("nav.collections"), id: "collection" },
-                { label: t("nav.lookbook"), id: "lifestyle" },
+                { label: t("nav.women"), action: () => scrollTo("collection") },
+                { label: t("nav.men"), action: () => scrollTo("collection") },
+                { label: t("nav.kids"), action: () => scrollTo("collection") },
+                { label: t("nav.collections"), action: () => setLocation("/collections") },
+                { label: t("nav.lookbook"), action: () => setLocation("/lookbook") },
               ].map((link, i) => (
                 <button
                   key={i}
-                  onClick={() => scrollTo(link.id)}
+                  onClick={() => { setMenuOpen(false); link.action(); }}
                   className="text-left text-sm font-medium uppercase tracking-widest py-3.5 border-b border-black/6 hover:text-primary transition-colors last:border-0"
                 >
                   {link.label}

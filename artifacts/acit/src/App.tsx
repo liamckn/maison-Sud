@@ -17,6 +17,8 @@ import { MentionsLegales } from "@/pages/MentionsLegales";
 import { Contact } from "@/pages/Contact";
 import { Confidentialite } from "@/pages/Confidentialite";
 import { Conditions } from "@/pages/Conditions";
+import { Collections } from "@/pages/Collections";
+import { Lookbook } from "@/pages/Lookbook";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +46,8 @@ function Router() {
       <Route path="/contact" component={Contact} />
       <Route path="/confidentialite" component={Confidentialite} />
       <Route path="/conditions" component={Conditions} />
+      <Route path="/collections" component={Collections} />
+      <Route path="/lookbook" component={Lookbook} />
       <Route component={NotFound} />
     </Switch>
     </>
