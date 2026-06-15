@@ -19,12 +19,11 @@ const LANGUAGES = [
 ];
 
 const FEMME_MENU = [
-  "Nouveautés",
-  "Vêtements",
-  "Polaires",
-  "Sport & Tennis",
+  "T-shirt",
+  "Maillot de bain",
+  "Short",
+  "Pantalon",
   "Accessoires",
-  "Chaussures",
 ];
 
 const HOMME_MENU = [
@@ -32,6 +31,7 @@ const HOMME_MENU = [
   "Maillot de bain",
   "Short",
   "Pantalon",
+  "Accessoires",
 ];
 
 function NavDropdown({
