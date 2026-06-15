@@ -23,6 +23,7 @@ import { Femme } from "@/pages/Femme";
 import { Homme } from "@/pages/Homme";
 import { Enfant } from "@/pages/Enfant";
 import { CategoryPage } from "@/pages/CategoryPage";
+import { ChatBot } from "@/components/ChatBot";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +71,7 @@ function App() {
           <Router />
         </WouterRouter>
         <Toaster />
+        <ChatBot />
       </TooltipProvider>
     </QueryClientProvider>
   );
