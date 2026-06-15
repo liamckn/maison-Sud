@@ -71,27 +71,6 @@ export function Hero() {
           {t("hero.madeInFrance")}
         </motion.p>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-row items-center gap-2 sm:gap-3 w-full"
-        >
-          <Button
-            className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-9 sm:h-11 px-3 sm:px-8 text-[9px] sm:text-[11px] uppercase tracking-[0.15em] font-bold flex-1 sm:flex-none whitespace-nowrap"
-            onClick={() => document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            {t("hero.discover")}
-          </Button>
-          <Button
-            variant="outline"
-            className="rounded-none border-foreground/20 text-foreground hover:bg-foreground/5 h-9 sm:h-11 px-3 sm:px-8 text-[9px] sm:text-[11px] uppercase tracking-[0.15em] font-bold flex-1 sm:flex-none whitespace-nowrap"
-            onClick={() => document.getElementById("lamarque")?.scrollIntoView({ behavior: "smooth" })}
-          >
-            {t("hero.history")}
-          </Button>
-        </motion.div>
       </div>
 
       {/* Right photo — Femme */}
