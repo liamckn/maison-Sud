@@ -25,12 +25,14 @@ export function Hero() {
       </motion.div>
 
       {/* Center — brand content */}
-      <div className="flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-8 py-12 bg-white relative z-10">
+      <div className="flex-1 flex flex-col items-center justify-center text-center px-3 sm:px-8 py-6 sm:py-12 bg-white relative z-10">
+
+        {/* Location — hidden on mobile to save space */}
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-4 sm:mb-6"
+          className="hidden sm:block text-[10px] uppercase tracking-[0.4em] text-muted-foreground mb-6"
         >
           SAINT-TROPEZ · MONACO · CÔTE D'AZUR
         </motion.p>
@@ -39,7 +41,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display font-bold text-foreground leading-none tracking-tight text-[2.8rem] sm:text-6xl md:text-7xl lg:text-8xl mb-3 sm:mb-4"
+          className="font-display font-bold text-foreground leading-none tracking-tight text-[2rem] sm:text-6xl md:text-7xl lg:text-8xl mb-2 sm:mb-4"
         >
           Maison Sud
         </motion.h1>
@@ -48,7 +50,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.65 }}
-          className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-muted-foreground mb-6 sm:mb-8 italic font-light"
+          className="text-[8px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em] text-muted-foreground mb-3 sm:mb-8 italic font-light"
         >
           L'Été Est Un État d'Esprit
         </motion.p>
@@ -57,33 +59,35 @@ export function Hero() {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.75 }}
-          className="w-12 h-px bg-primary mb-8 sm:mb-10"
+          className="w-8 sm:w-12 h-px bg-primary mb-3 sm:mb-10"
         />
 
+        {/* Made in France — hidden on mobile */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.85 }}
-          className="text-[11px] sm:text-sm text-muted-foreground uppercase tracking-widest mb-8 sm:mb-10 font-light"
+          className="hidden sm:block text-sm text-muted-foreground uppercase tracking-widest mb-10 font-light"
         >
           {t("hero.madeInFrance")}
         </motion.p>
 
+        {/* Buttons — side by side on mobile */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0"
+          className="flex flex-row items-center gap-2 sm:gap-4 w-full"
         >
           <Button
-            className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-11 sm:h-13 px-6 sm:px-10 text-[10px] sm:text-xs uppercase tracking-[0.25em] font-bold w-full sm:w-auto"
+            className="rounded-none bg-primary text-primary-foreground hover:bg-primary/90 h-9 sm:h-13 px-3 sm:px-10 text-[9px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.25em] font-bold flex-1 sm:flex-none"
             onClick={() => document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" })}
           >
             {t("hero.discover")}
           </Button>
           <Button
             variant="outline"
-            className="rounded-none border-foreground/20 text-foreground hover:bg-foreground/5 h-11 sm:h-13 px-6 sm:px-10 text-[10px] sm:text-xs uppercase tracking-[0.25em] font-bold w-full sm:w-auto"
+            className="rounded-none border-foreground/20 text-foreground hover:bg-foreground/5 h-9 sm:h-13 px-3 sm:px-10 text-[9px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.25em] font-bold flex-1 sm:flex-none"
             onClick={() => document.getElementById("lamarque")?.scrollIntoView({ behavior: "smooth" })}
           >
             {t("hero.history")}
