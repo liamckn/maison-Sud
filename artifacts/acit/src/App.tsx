@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import { PageTransition } from "@/components/PageTransition";
 import { Home } from "@/pages/Home";
 import { ProductPage } from "@/pages/ProductPage";
 import { Histoire } from "@/pages/Histoire";
@@ -29,6 +30,7 @@ function Router() {
   return (
     <>
       <ScrollToTop />
+      <PageTransition />
       <Switch>
       <Route path="/" component={Home} />
       <Route path="/product/:id" component={ProductPage} />
