@@ -19,7 +19,6 @@ const LANGUAGES = [
 ];
 
 const FEMME_MENU = [
-  "Tout",
   "Nouveautés",
   "Vêtements",
   "Polaires",
@@ -29,7 +28,6 @@ const FEMME_MENU = [
 ];
 
 const HOMME_MENU = [
-  "Tout",
   "Vêtements",
   "Accessoires",
   "Polaires",
