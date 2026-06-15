@@ -13,6 +13,12 @@ export function Footer() {
             <p className="text-muted-foreground text-sm uppercase tracking-widest max-w-xs mb-6 sm:mb-8">
               L'Été Est Un État D'Esprit.
             </p>
+            <a
+              href="mailto:contact.houseofhouse@gmail.com"
+              className="text-xs text-primary hover:underline underline-offset-4 tracking-widest mb-5 sm:mb-6 block"
+            >
+              contact.houseofhouse@gmail.com
+            </a>
             <div className="flex gap-3 sm:gap-4">
               <a href="#" className="w-9 h-9 sm:w-10 sm:h-10 border border-border/20 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
                 <Instagram className="w-4 h-4" />
@@ -39,7 +45,7 @@ export function Footer() {
               <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.shipping")}</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.faq")}</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.legal")}</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.contact")}</a></li>
+              <li><a href="mailto:contact.houseofhouse@gmail.com" className="text-muted-foreground hover:text-primary text-xs sm:text-sm transition-colors">{t("footer.contact")}</a></li>
             </ul>
           </div>
         </div>
