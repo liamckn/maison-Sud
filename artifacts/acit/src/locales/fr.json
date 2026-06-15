@@ -25,7 +25,7 @@
   "lifestyle": {
     "brand": "La Marque",
     "title": "L'essence de la\nMéditerranée",
-    "description": "𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱 est plus qu'une marque de vêtements. C'est un hymne à la jeunesse, aux soirées qui s'étirent, au sable chaud sous les pieds et à l'élégance désinvolte de la French Riviera. Conçu pour ceux qui vivent chaque instant intensément.",
+    "description": "𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱 est plus qu'une marque de vêtements. C'est une ode à la Méditerranée, aux soirées qui s'étirent, au sable chaud sous les pieds et à l'élégance désinvolte de la French Riviera. Conçu pour ceux qui vivent chaque instant intensément.",
     "statDelivery": "Livraison",
     "statVibes": "Vibes Estivales",
     "statMadeIn": "Made in France"
@@ -33,13 +33,13 @@
   "story": {
     "chapter": "Origines",
     "title": "Notre\nHistoire",
-    "p0": "Tout a commencé avec deux adolescents, un rêve trop grand pour leur âge et une obsession pour le sud de la France.",
-    "p1": "On n'avait pas d'argent, pas de connexions, pas de local. On avait juste une vision : créer une marque qui parle vraiment aux jeunes. Pas une marque faite par des adultes qui essaient de comprendre notre génération. Une marque née dedans.",
-    "p2": "L'été, on regardait Saint-Tropez, Monaco, la Méditerranée — ce monde de liberté, de soleil, de belle vie — et on se disait que ce feeling, cet état d'esprit, devait exister dans les vêtements qu'on porte.",
-    "p3": "Pas dans un bureau. Pas dans une réunion. Dans la tête de deux gamins qui refusaient d'attendre d'être grands pour commencer à vivre.",
-    "p4": "Aujourd'hui, chaque pièce qu'on crée porte cette énergie. L'été comme état d'esprit. La Côte d'Azur comme inspiration. La jeunesse comme force.",
-    "closing": "𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱, c'est pour ceux qui n'attendent pas.",
-    "founded": "Fondé en 2025"
+    "p0": "Maison Sud est née d'une conviction ancrée dans le Sud : l'été n'est pas une saison, c'est une façon d'être.",
+    "p1": "Tout est parti d'une obsession pour la Côte d'Azur — sa lumière, son art de vivre, cette élégance naturelle qui ne se force pas. Nous voulions capturer cet état d'esprit dans des pièces qui durent, qui voyagent, qui racontent quelque chose.",
+    "p2": "De Saint-Tropez à Monaco, en passant par les calanques et les villages de l'arrière-pays, notre inspiration ne tarit pas. C'est cette lumière dorée, ces eaux turquoise, ce mélange unique de rigueur et de liberté qui guide chaque création.",
+    "p3": "Chaque pièce est pensée avec exigence : des matières sélectionnées pour leur tenue, des coupes qui s'adaptent au corps, une esthétique qui ne suit pas les tendances — elle s'en affranchit.",
+    "p4": "Maison Sud, c'est pour ceux qui savent ce qu'ils veulent. Une mode qui respire, qui vieillit bien, qui porte en elle l'essence de la Méditerranée.",
+    "closing": "𝗠𝗮𝗶𝘀𝗼𝗻 𝗦𝘂𝗱 — L'Été Est Un État d'Esprit.",
+    "founded": "Maison Sud, France"
   },
   "newsletter": {
     "vipAccess": "Accès VIP",
