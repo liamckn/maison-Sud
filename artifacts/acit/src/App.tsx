@@ -22,6 +22,7 @@ import { Lookbook } from "@/pages/Lookbook";
 import { Femme } from "@/pages/Femme";
 import { Homme } from "@/pages/Homme";
 import { Enfant } from "@/pages/Enfant";
+import { CategoryPage } from "@/pages/CategoryPage";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ function Router() {
       <Route path="/femme" component={Femme} />
       <Route path="/homme" component={Homme} />
       <Route path="/enfant" component={Enfant} />
+      <Route path="/:genre/:category" component={CategoryPage} />
       <Route path="/lookbook" component={Lookbook} />
       <Route component={NotFound} />
     </Switch>

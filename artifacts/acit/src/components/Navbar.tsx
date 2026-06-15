@@ -19,19 +19,19 @@ const LANGUAGES = [
 ];
 
 const FEMME_MENU = [
-  "T-shirt",
-  "Maillot de bain",
-  "Short",
-  "Pantalon",
-  "Accessoires",
+  { label: "T-shirt", path: "/femme/tshirt" },
+  { label: "Maillot de bain", path: "/femme/maillot-de-bain" },
+  { label: "Short", path: "/femme/short" },
+  { label: "Pantalon", path: "/femme/pantalon" },
+  { label: "Accessoires", path: "/femme/accessoires" },
 ];
 
 const HOMME_MENU = [
-  "T-shirt",
-  "Maillot de bain",
-  "Short",
-  "Pantalon",
-  "Accessoires",
+  { label: "T-shirt", path: "/homme/tshirt" },
+  { label: "Maillot de bain", path: "/homme/maillot-de-bain" },
+  { label: "Short", path: "/homme/short" },
+  { label: "Pantalon", path: "/homme/pantalon" },
+  { label: "Accessoires", path: "/homme/accessoires" },
 ];
 
 function NavDropdown({
@@ -43,12 +43,13 @@ function NavDropdown({
   onLabelClick,
 }: {
   label: string;
-  items: string[];
+  items: { label: string; path: string }[];
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
   onLabelClick?: () => void;
 }) {
+  const [, setLocation] = useLocation();
   const ref = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -81,14 +82,11 @@ function NavDropdown({
           >
             {items.map((item) => (
               <button
-                key={item}
-                onClick={onClose}
+                key={item.path}
+                onClick={() => { onClose(); setLocation(item.path); }}
                 className="flex items-center justify-between w-full text-left px-4 py-2.5 text-xs font-medium tracking-wider text-foreground hover:text-primary transition-colors group"
               >
-                <span>{item}</span>
-                {["Vêtements", "Polaires", "Sport & Tennis", "Accessoires", "Chaussures"].includes(item) && (
-                  <ChevronDown className="h-3 w-3 -rotate-90 text-muted-foreground/50 group-hover:text-primary transition-colors" />
-                )}
+                <span>{item.label}</span>
               </button>
             ))}
           </motion.div>
