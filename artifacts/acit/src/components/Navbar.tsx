@@ -28,10 +28,10 @@ const FEMME_MENU = [
 ];
 
 const HOMME_MENU = [
-  "Vêtements",
-  "Accessoires",
-  "Polaires",
-  "Chaussures",
+  "T-shirt",
+  "Maillot",
+  "Short",
+  "Pantalon",
 ];
 
 function NavDropdown({
