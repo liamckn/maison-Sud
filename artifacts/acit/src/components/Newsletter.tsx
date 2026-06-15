@@ -7,18 +7,39 @@ import { useTranslation } from "react-i18next";
 
 export function Newsletter() {
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const { t } = useTranslation();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!email || loading) return;
 
-    toast({
-      title: t("newsletter.toastTitle"),
-      description: t("newsletter.toastDesc"),
-    });
-    setEmail("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+
+      if (res.status === 409) {
+        toast({ title: "Déjà inscrit", description: "Cette adresse est déjà dans le Club VIP." });
+      } else if (!res.ok) {
+        toast({ title: "Erreur", description: data.error ?? "Une erreur est survenue.", variant: "destructive" });
+      } else {
+        toast({
+          title: t("newsletter.toastTitle"),
+          description: t("newsletter.toastDesc"),
+        });
+        setEmail("");
+      }
+    } catch {
+      toast({ title: "Erreur", description: "Impossible de se connecter au serveur.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
