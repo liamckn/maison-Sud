@@ -19,8 +19,8 @@ export const products: Product[] = [
     image: "/images/tee-femme-duo.jpeg",
     images: [
       "/images/tee-femme-duo.jpeg",
-      "/images/tee-femme-front.jpeg",
       "/images/tee-femme-lifestyle.jpeg",
+      "/images/tee-femme-front.jpeg",
       "/images/tee-femme-back.jpeg",
     ],
     imageFit: "cover",
