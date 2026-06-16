@@ -20,6 +20,7 @@ const GENRE_MAP: Record<string, string> = {
 
 const CATEGORY_PRODUCTS: Record<string, string[]> = {
   "homme/tshirt": ["tee-homme-maison-sud"],
+  "femme/tshirt": ["tee-femme-maison-sud"],
 };
 
 export function CategoryPage() {
