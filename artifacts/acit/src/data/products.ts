@@ -13,6 +13,18 @@ export interface Product {
 
 export const products: Product[] = [
   {
+    id: "tee-femme-maison-sud",
+    name: "T-shirt femme Maison Sud",
+    price: 39.99,
+    image: "/images/tee-femme-duo.jpeg",
+    images: ["/images/tee-femme-duo.jpeg"],
+    imageFit: "cover",
+    badge: "NOUVEAU",
+    description: "Le t-shirt signature Maison Sud en coupe femme. 100% coton, teint en pièce pour un toucher doux et un look vintage. Coupe décontractée, tissu lourd — fait pour durer.",
+    details: ["100% coton américain", "Tissu lourd 206 g/m²", "Teint en pièce (garment-dyed)", "Coupe décontractée", "Lavage à 30°C"],
+    sizes: ["XS", "S", "M", "L", "XL"],
+  },
+  {
     id: "tee-homme-maison-sud",
     name: "T-shirt homme Maison Sud",
     price: 39.99,
